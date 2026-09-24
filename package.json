@@ -1,6 +1,6 @@
 {
   "name": "students-class",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Student's Class — virtual classes, announcements and homework",
   "author": "Student's Class",
   "main": "electron/main.js",
