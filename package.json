@@ -52,7 +52,7 @@
     },
     "publish": {
       "provider": "github",
-      "owner": "TU_USUARIO_GITHUB",
+      "owner": "Shadow-Cope",
       "repo": "students-class"
     },
     "nsis": {
