@@ -53,7 +53,7 @@
     "publish": {
       "provider": "github",
       "owner": "Shadow-Cope",
-      "repo": "students-class"
+      "repo": "Students-Class-Updates"
     },
     "nsis": {
       "oneClick": false,
