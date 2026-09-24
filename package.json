@@ -1,0 +1,83 @@
+{
+  "name": "students-class",
+  "version": "1.0.0",
+  "description": "Student's Class — virtual classes, announcements and homework",
+  "author": "Student's Class",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "setup": "npm install",
+    "icon": "npx electron build/render-icon.js && node build/pack-icon.cjs",
+    "dist": "electron-builder --win nsis --publish never",
+    "dist:win": "electron-builder --win nsis --publish never",
+    "release": "electron-builder --win nsis --publish always"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8",
+    "electron-icon-builder": "^2.0.1",
+    "png-to-ico": "^2.1.8"
+  },
+  "build": {
+    "appId": "com.studentsclass.app",
+    "productName": "Student's Class",
+    "directories": {
+      "output": "dist"
+    },
+    "afterPack": "build/after-pack.cjs",
+    "files": [
+      "index.html",
+      "app.js",
+      "styles.css",
+      "logo.svg",
+      "legal.js",
+      "firebase-config.js",
+      "firebase-cloud.js",
+      "electron/**/*",
+      "build/icon.ico",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico",
+      "signAndEditExecutable": false,
+      "artifactName": "StudentsClassSetup-${version}.${ext}"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "TU_USUARIO_GITHUB",
+      "repo": "students-class"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Student's Class",
+      "uninstallDisplayName": "Student's Class",
+      "installerLanguages": [
+        "en_US",
+        "es_ES",
+        "pt_PT",
+        "fr_FR",
+        "de_DE"
+      ],
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "installerHeaderIcon": "build/icon.ico",
+      "installerHeader": "build/installer-header.bmp",
+      "installerSidebar": "build/installer-sidebar.bmp",
+      "runAfterFinish": true
+    }
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.9"
+  }
+}

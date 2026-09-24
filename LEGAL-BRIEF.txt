@@ -1,0 +1,104 @@
+BRIEF PARA IA LEGAL — STUDENT'S CLASS
+================================================================
+Usa esta descripción para redactar: Términos y Condiciones, Política de
+Privacidad (adaptada al RGPD europeo) y Política de Cookies, en español,
+inglés, portugués, francés y alemán. Marca con [DATO] todo lo que necesites
+que te proporcione (nombre del titular, email de contacto, etc.).
+
+1. QUÉ ES LA APLICACIÓN
+-----------------------
+Student's Class es una aplicación gratuita de gestión de clases virtuales
+para profesores y alumnos, inspirada en Google Classroom y en EVAGD
+(plataforma educativa del Gobierno de Canarias). Permite:
+- Crear un perfil local (nombre, apellidos, email, rol alumno/profesor,
+  foto de perfil opcional y biografía).
+- Crear clases virtuales (nombre, asignatura, grupo, aula, descripción) con
+  un código de 6 caracteres para unirse.
+- Publicar anuncios en el tablón (Stream) de cada clase.
+- Crear tareas con título, instrucciones, fecha de entrega y puntos, con
+  opción de anunciarlas también en el tablón.
+- Marcar tareas como hechas, ver calendario de entregas, lista de
+  pendientes, miembros de la clase y archivo de clases antiguas.
+- Cambiar tema claro/oscuro (sigue al sistema) e idioma de la interfaz
+  (español, inglés, portugués, francés, alemán).
+- Exportar/importar copias de seguridad en JSON y borrar todos los datos.
+
+2. PLATAFORMAS Y DISTRIBUCIÓN
+-----------------------------
+- App de escritorio Windows (64 bits) construida con Electron, distribuida
+  como ejecutable portable y como instalador NSIS asistido
+  (StudentsClassSetup), con accesos directos y opción de ejecutar al final.
+- El mismo código funciona como app web abriendo index.html en el navegador.
+- Distribución directa (descarga del instalador). Sin tiendas de apps, sin
+  publicidad, sin compras integradas, sin suscripciones. Proyecto sin ánimo
+  de lucro / de ámbito educativo.
+
+3. MODELO DE DATOS Y DÓNDE SE GUARDAN
+-------------------------------------
+A) MODO LOCAL (por defecto, sin cuenta ni internet):
+   Todo se guarda SOLO en el dispositivo del usuario (localStorage del
+   navegador / perfil de la app Electron): perfil, foto (JPEG en base64
+   reducido a 256 px), clases, anuncios, tareas, tema, idioma. Nada sale
+   del equipo. Borrar datos o desinstalar puede hacerlos irrecuperables.
+
+B) MODO NUBE (opcional, requiere crear cuenta e internet):
+   Sincronización con Google Firebase del proyecto configurado por quien
+   distribuye la app:
+   - Firebase Authentication: email + contraseña, o acceso invitado anónimo.
+   - Cloud Firestore: clases en línea (documentos con nombre, descripción,
+     código, propietario, miembros), anuncios, tareas y estado de
+     completado por usuario.
+   - Las fotos de perfil se sincronizan como texto base64 dentro de los
+     documentos de miembro.
+   Los datos en la nube los administra el titular del proyecto Firebase.
+
+4. USUARIOS
+-----------
+Profesores y alumnos, INCLUIDOS MENORES DE EDAD en contexto escolar. Se
+exige supervisión y consentimiento parental por debajo de 14 años. Los
+usuarios publican contenido propio (anuncios, tareas, fotos) y solo el
+creador de cada clase puede publicar en ella; el resto son lectores.
+
+5. TERCEROS Y TECNOLOGÍAS
+-------------------------
+- Electron (clavijo de escritorio, código abierto).
+- NSIS (instalador, código abierto).
+- Google Firebase (solo si el usuario activa la nube): Authentication +
+  Firestore, bajo la política de privacidad de Google.
+- Sin analítica, sin rastreadores, sin publicidad, sin SDKs sociales.
+
+6. COOKIES Y ALMACENAMIENTO
+---------------------------
+La app de escritorio NO usa cookies. Usa almacenamiento local del
+dispositivo (imprescindible para funcionar). Con la nube activa, Firebase
+mantiene una sesión técnica de autenticación. No hay cookies publicitarias
+ni de terceros.
+
+7. RIESGOS A CUBRIR EN LOS TEXTOS
+---------------------------------
+- Pérdida de datos locales (desinstalación, borrado del navegador).
+- Responsabilidad sobre el contenido publicado por usuarios.
+- Cuentas y custodia de credenciales.
+- Menores y consentimiento parental.
+- Disponibilidad "tal cual", sin garantías, y límite de responsabilidad.
+- Derechos RGPD: acceso, rectificación, supresión, oposición, limitación,
+  portabilidad (detalla cómo ejercerlos en local y en nube).
+- Ley aplicable: España. Sin transferencia internacional salvo la propia
+  infraestructura de Firebase/Google.
+- El instalador exige aceptar los términos antes de instalar.
+
+8. QUÉ ENTREGAR
+---------------
+- Términos y Condiciones completos.
+- Política de Privacidad RGPD completa.
+- Política de Cookies / almacenamiento local.
+- Versión corta de cada documento apta como licencia del instalador
+  (página que el usuario debe aceptar).
+- Todo en ES, EN, PT, FR y DE, con tono claro y sin jerga innecesaria.
+- Lista final de [DATO] pendientes de rellenar.
+
+9. DOCUMENTOS ACTUALES (borradores a mejorar)
+---------------------------------------------
+La app ya incluye borradores en Ajustes → Legal y como licencia del
+instalador (build/license_es.txt y equivalentes _en/_pt/_fr/_de). Úsalos
+como base y mejóralos profesionalmente.

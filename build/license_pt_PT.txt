@@ -1,0 +1,44 @@
+﻿CONTRATO DE LICENÇA E TERMOS DE UTILIZAÇÃO — STUDENT'S CLASS
+Última atualização: 24 de setembro de 2026
+
+Leia este documento com atenção antes de instalar. Para continuar a
+instalação tem de aceitar todos os termos selecionando "Aceito".
+
+1. LICENÇA
+É concedida uma licença gratuita, limitada, não exclusiva e intransmissível
+para instalar e utilizar o Student's Class para fins pessoais e educativos
+nos seus dispositivos. É proibido modificar, descompilar, redistribuir ou
+vender a aplicação sem autorização escrita.
+
+2. OS SEUS DADOS
+- Por defeito, todos os seus dados (perfil, turmas, trabalhos, fotos) ficam
+  guardados APENAS neste computador. Nada é enviado para nenhum servidor.
+- Se iniciar sessão na nuvem opcional, as suas turmas online sincronizam
+  através da Google Firebase, segundo a sua própria política de privacidade.
+- É responsável pelas suas credenciais e pelo conteúdo que publicar.
+
+3. MENORES
+A utilização por menores de 14 anos requer supervisão e consentimento dos
+pais ou tutores legais.
+
+4. SEM GARANTIAS E LIMITAÇÃO DE RESPONSABILIDADE
+O software é fornecido "COMO ESTÁ", sem garantias de disponibilidade
+contínua nem de ausência de erros. Na máxima medida permitida por lei, o
+desenvolvedor não responde por perda de dados nem por danos decorrentes do
+uso da aplicação. Use a função Exportar para guardar cópias de segurança.
+
+5. NORMAS DE UTILIZAÇÃO
+Não publique conteúdo ilícito, ofensivo ou que viole direitos de terceiros
+ou a sua privacidade. O incumprimento pode levar à remoção do conteúdo ou
+da conta na nuvem.
+
+6. POLÍTICAS COMPLEMENTARES
+Fazem parte deste contrato a Política de Privacidade e a Política de Cookies
+e armazenamento local, disponíveis na aplicação em Definições → Legal.
+
+7. ACEITAÇÃO
+Ao clicar em "Aceito" e instalar, confirma que leu e aceita integralmente
+estes Termos, a Política de Privacidade e a Política de Cookies, e que tem
+capacidade legal ou autorização suficiente para tal.
+
+Lei aplicável: legislação espanhola.

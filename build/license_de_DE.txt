@@ -1,0 +1,50 @@
+﻿LIZENZVERTRAG UND NUTZUNGSBEDINGUNGEN — STUDENT'S CLASS
+Zuletzt aktualisiert: 24. September 2026
+
+Bitte lesen Sie dieses Dokument vor der Installation sorgfältig durch. Um
+fortzufahren, müssen Sie alle Bedingungen mit „Ich stimme zu" akzeptieren.
+
+1. LIZENZ
+Ihnen wird eine kostenlose, eingeschränkte, nicht exklusive und nicht
+übertragbare Lizenz zur Installation und Nutzung von Student's Class für
+persönliche und schulische Zwecke auf Ihren Geräten gewährt. Es ist
+untersagt, die Anwendung ohne schriftliche Genehmigung zu ändern, zu
+dekompilieren, weiterzuverbreiten oder zu verkaufen.
+
+2. IHRE DATEN
+- Standardmäßig werden alle Ihre Daten (Profil, Klassen, Aufgaben, Fotos)
+  AUSSCHLIESSLICH auf diesem Computer gespeichert. Nichts wird an einen
+  Server gesendet.
+- Wenn Sie sich bei der optionalen Cloud anmelden, werden Ihre Online-
+  Klassen über Google Firebase gemäß dessen eigener Datenschutzerklärung
+  synchronisiert.
+- Sie sind für Ihre Zugangsdaten und die von Ihnen veröffentlichten Inhalte
+  verantwortlich.
+
+3. MINDERJÄHRIGE
+Die Nutzung durch Kinder unter 14 Jahren erfordert die Aufsicht und
+Zustimmung der Eltern oder Erziehungsberechtigten.
+
+4. KEINE GEWÄHRLEISTUNG UND HAFTUNGSBESCHRÄNKUNG
+Die Software wird „WIE BESEHEN" bereitgestellt, ohne Gewähr für
+ununterbrochene Verfügbarkeit oder Fehlerfreiheit. Soweit gesetzlich
+zulässig, haftet der Entwickler nicht für Datenverlust oder Schäden aus der
+Nutzung der Anwendung. Nutzen Sie die Exportfunktion für Sicherungskopien.
+
+5. NUTZUNGSREGELN
+Veröffentlichen Sie keine rechtswidrigen oder beleidigenden Inhalte und
+keine Inhalte, die Rechte oder die Privatsphäre Dritter verletzen.
+Verstöße können zur Löschung der Inhalte oder des Cloud-Kontos führen.
+
+6. ERGÄNZENDE RICHTLINIEN
+Die Datenschutzerklärung und die Cookie- und Speicher-Richtlinie sind
+Bestandteil dieses Vertrags und in der Anwendung unter
+Einstellungen → Rechtliches verfügbar.
+
+7. ANNAHME
+Mit dem Klick auf „Ich stimme zu" bestätigen Sie, diese Bedingungen, die
+Datenschutzerklärung und die Cookie-Richtlinie vollständig gelesen und
+akzeptiert zu haben und über die erforderliche Rechtsfähigkeit bzw.
+Berechtigung zu verfügen.
+
+Anwendbares Recht: spanisches Recht.

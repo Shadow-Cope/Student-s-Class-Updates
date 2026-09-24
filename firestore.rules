@@ -1,0 +1,56 @@
+rules_version = '2';
+
+// Student's Class — starter rules.
+// Paste this into Firebase console -> Build -> Firestore Database -> Rules -> Publish.
+// Authenticated users can list classes (needed for join-by-code), create classes,
+// and read everything. Only the class owner can edit/delete the class itself.
+// Members can post and manage homework; done-status is per user.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /classes/{classId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null
+        && request.resource.data.ownerUid == request.auth.uid
+        && request.resource.data.code is string;
+      allow update: if request.auth != null
+        && (resource.data.ownerUid == request.auth.uid
+            || request.resource.data.diff(resource.data).affectedKeys().hasOnly(['memberUids']));
+      allow delete: if request.auth != null && resource.data.ownerUid == request.auth.uid;
+
+      match /members/{uid} {
+        allow read: if request.auth != null;
+        // Users can add/remove THEMSELVES (join/leave). Owners can manage anyone.
+        allow create, delete: if request.auth != null
+          && (uid == request.auth.uid
+              || get(/databases/$(database)/documents/classes/$(classId)).data.ownerUid == request.auth.uid);
+        allow update: if request.auth != null
+          && (uid == request.auth.uid
+              || get(/databases/$(database)/documents/classes/$(classId)).data.ownerUid == request.auth.uid);
+      }
+
+      match /posts/{postId} {
+        allow read: if request.auth != null;
+        allow create: if request.auth != null
+          && (get(/databases/$(database)/documents/classes/$(classId)).data.ownerUid == request.auth.uid
+              || exists(/databases/$(database)/documents/classes/$(classId)/members/$(request.auth.uid)));
+        allow update, delete: if request.auth != null
+          && (resource.data.authorUid == request.auth.uid
+              || get(/databases/$(database)/documents/classes/$(classId)).data.ownerUid == request.auth.uid);
+      }
+
+      match /assignments/{assignId} {
+        allow read: if request.auth != null;
+        allow create: if request.auth != null
+          && get(/databases/$(database)/documents/classes/$(classId)).data.ownerUid == request.auth.uid;
+        // Toggling done-status touches only doneBy; owners have full access.
+        allow update: if request.auth != null
+          && (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['doneBy'])
+              || get(/databases/$(database)/documents/classes/$(classId)).data.ownerUid == request.auth.uid);
+        allow delete: if request.auth != null
+          && get(/databases/$(database)/documents/classes/$(classId)).data.ownerUid == request.auth.uid;
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Loading Student's Class...</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0; font-family: Roboto, Arial, "Segoe UI", sans-serif;
+    display: flex; align-items: center; justify-content: center;
+    background: #ffffff; color: #1f1f1f;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { background: #1e1f20; color: #e3e3e3; }
+    .bar-track { background: #303845; }
+  }
+  .box { text-align: center; padding: 32px 28px; width: 300px; }
+  .box img { width: 120px; height: 120px; display: block; margin: 0 auto 14px; }
+  h1 { font-size: 20px; font-weight: 500; margin: 0 0 4px; }
+  p { margin: 0 0 18px; font-size: 13px; color: #5f6368; }
+  @media (prefers-color-scheme: dark) { p { color: #9aa0a6; } }
+  .bar-track { height: 6px; border-radius: 3px; background: #e1e3e6; overflow: hidden; }
+  .bar-fill {
+    height: 100%; width: 30%; border-radius: 3px; background: #1a73e8;
+    animation: slide 1.1s ease-in-out infinite;
+  }
+  @keyframes slide {
+    0% { margin-left: -30%; }
+    100% { margin-left: 100%; }
+  }
+  .status { margin-top: 12px; font-size: 12px; color: #5f6368; min-height: 16px; }
+  @media (prefers-color-scheme: dark) { .status { color: #9aa0a6; } }
+</style>
+</head>
+<body>
+  <div class="box">
+    <img src="../logo.svg" alt="Student's Class logo" />
+    <h1>Student's Class</h1>
+    <p>Getting your classes ready...</p>
+    <div class="bar-track"><div class="bar-fill"></div></div>
+    <div class="status" id="status">Loading interface</div>
+  </div>
+  <script>
+    // Cosmetic staged messages while the main window loads for real.
+    var steps = ["Loading interface", "Restoring profile", "Loading classes", "Almost done"];
+    var i = 0;
+    var el = document.getElementById("status");
+    var bar = document.querySelector(".bar-fill");
+    var locked = false; // set once the main process reports real update progress
+    var timer = setInterval(function () {
+      if (locked) return;
+      i = (i + 1) % steps.length;
+      el.textContent = steps[i];
+    }, 600);
+    // Called from the main process: shows mandatory-update status + real %.
+    // frac: 0..1, or null for indeterminate.
+    window.updateSplash = function (text, frac) {
+      locked = true;
+      clearInterval(timer);
+      el.textContent = text;
+      if (frac == null) {
+        bar.style.width = "30%";
+      } else {
+        bar.style.animation = "none";
+        bar.style.marginLeft = "0";
+        bar.style.width = Math.max(2, Math.min(100, frac * 100)) + "%";
+      }
+    };
+  </script>
+</body>
+</html>

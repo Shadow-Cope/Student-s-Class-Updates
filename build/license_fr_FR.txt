@@ -1,0 +1,49 @@
+﻿CONTRAT DE LICENCE ET CONDITIONS D'UTILISATION — STUDENT'S CLASS
+Dernière mise à jour : 24 septembre 2026
+
+Veuillez lire attentivement ce document avant d'installer. Pour continuer
+l'installation, vous devez accepter l'ensemble des conditions en
+sélectionnant « J'accepte ».
+
+1. LICENCE
+Une licence gratuite, limitée, non exclusive et incessible vous est accordée
+pour installer et utiliser Student's Class à des fins personnelles et
+éducatives sur vos appareils. Il est interdit de modifier, décompiler,
+redistribuer ou vendre l'application sans autorisation écrite.
+
+2. VOS DONNÉES
+- Par défaut, toutes vos données (profil, cours, devoirs, photos) sont
+  stockées UNIQUEMENT sur cet ordinateur. Rien n'est envoyé à un serveur.
+- Si vous vous connectez au cloud optionnel, vos cours en ligne sont
+  synchronisés via Google Firebase, selon sa propre politique de
+  confidentialité.
+- Vous êtes responsable de vos identifiants et du contenu que vous publiez.
+
+3. MINEURS
+L'utilisation par des enfants de moins de 14 ans requiert la supervision et
+le consentement des parents ou tuteurs légaux.
+
+4. ABSENCE DE GARANTIE ET LIMITATION DE RESPONSABILITÉ
+Le logiciel est fourni « EN L'ÉTAT », sans garantie de disponibilité
+continue ni d'absence d'erreurs. Dans toute la mesure permise par la loi,
+le développeur n'est pas responsable des pertes de données ni des dommages
+liés à l'utilisation de l'application. Utilisez la fonction Exporter pour
+conserver des sauvegardes.
+
+5. USAGE ACCEPTABLE
+Ne publiez pas de contenu illicite, offensant, ni portant atteinte aux
+droits ou à la vie privée d'autrui. Tout manquement peut entraîner la
+suppression du contenu ou du compte cloud.
+
+6. POLITIQUES COMPLÉMENTAIRES
+La Politique de confidentialité et la Politique relative aux cookies et au
+stockage local font partie de ce contrat et sont disponibles dans
+l'application sous Paramètres → Légal.
+
+7. ACCEPTATION
+En cliquant sur « J'accepte » et en installant, vous confirmez avoir lu et
+accepté l'intégralité de ces Conditions, de la Politique de confidentialité
+et de la Politique cookies, et disposer de la capacité juridique ou de
+l'autorisation suffisante.
+
+Droit applicable : droit espagnol.

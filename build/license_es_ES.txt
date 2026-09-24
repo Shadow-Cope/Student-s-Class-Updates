@@ -1,0 +1,47 @@
+﻿CONTRATO DE LICENCIA Y TÉRMINOS DE USO — STUDENT'S CLASS
+Última actualización: 24 de septiembre de 2026
+
+Lea atentamente este documento antes de instalar. Para continuar con la
+instalación debe aceptar todos los términos marcando "Acepto".
+
+1. LICENCIA
+Se le concede una licencia gratuita, limitada, no exclusiva e intransferible
+para instalar y usar Student's Class con fines personales y educativos en
+sus dispositivos. Queda prohibido modificar, descompilar, redistribuir o
+vender la aplicación sin autorización escrita.
+
+2. SUS DATOS
+- Por defecto, todos sus datos (perfil, clases, tareas, fotos) se guardan
+  SOLO en este equipo. Nada se envía a ningún servidor.
+- Si inicia sesión en la nube opcional, sus clases en línea se sincronizan
+  mediante Google Firebase según su propia política de privacidad.
+- Usted es responsable de sus credenciales y del contenido que publique.
+
+3. MENORES
+El uso por menores de 14 años requiere supervisión y consentimiento de
+padres o tutores legales.
+
+4. SIN GARANTÍAS Y LÍMITE DE RESPONSABILIDAD
+El software se entrega "TAL CUAL", sin garantías de disponibilidad continua
+ni de ausencia de errores. En la máxima medida permitida por la ley, el
+desarrollador no responde por pérdida de datos ni por daños derivados del
+uso de la aplicación. Use la función Exportar para guardar copias de
+seguridad.
+
+5. NORMAS DE USO
+No publique contenido ilícito, ofensivo o que vulnere derechos de terceros
+o su privacidad. El incumplimiento puede conllevar la eliminación del
+contenido o la cuenta en la nube.
+
+6. POLÍTICAS COMPLEMENTARIAS
+Forman parte de este contrato la Política de Privacidad y la Política de
+Cookies y almacenamiento local, disponibles en la aplicación en
+Ajustes → Legal.
+
+7. ACEPTACIÓN
+Al hacer clic en "Acepto" e instalar, usted confirma que ha leído y acepta
+íntegramente estos Términos, la Política de Privacidad y la Política de
+Cookies, y que cuenta con capacidad legal o autorización suficiente para
+ello.
+
+Ley aplicable: legislación española.

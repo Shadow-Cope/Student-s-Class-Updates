@@ -1,0 +1,44 @@
+﻿LICENSE AGREEMENT AND TERMS OF USE — STUDENT'S CLASS
+Last updated: September 24, 2026
+
+Please read this document carefully before installing. To continue with the
+installation you must accept all terms by selecting "I accept".
+
+1. LICENSE
+You are granted a free, limited, non-exclusive, non-transferable license to
+install and use Student's Class for personal and educational purposes on your
+devices. Modifying, decompiling, redistributing or selling the application
+without written permission is prohibited.
+
+2. YOUR DATA
+- By default, all your data (profile, classes, homework, photos) is stored
+  ONLY on this computer. Nothing is sent to any server.
+- If you sign in to the optional cloud, your online classes sync through
+  Google Firebase under its own privacy policy.
+- You are responsible for your credentials and for the content you publish.
+
+3. MINORS
+Use by children under 14 requires supervision and consent from parents or
+legal guardians.
+
+4. NO WARRANTY AND LIMITATION OF LIABILITY
+The software is provided "AS IS", with no warranties of uninterrupted
+availability or absence of errors. To the maximum extent permitted by law,
+the developer is not liable for data loss or damages arising from the use of
+the application. Use the Export feature to keep backups.
+
+5. ACCEPTABLE USE
+Do not publish unlawful, offensive content, or content that infringes the
+rights or privacy of others. Violations may lead to removal of the content
+or the cloud account.
+
+6. RELATED POLICIES
+The Privacy Policy and the Cookie and local-storage Policy are part of this
+agreement and are available inside the application under Settings → Legal.
+
+7. ACCEPTANCE
+By clicking "I accept" and installing, you confirm that you have read and
+fully accept these Terms, the Privacy Policy and the Cookie Policy, and that
+you have legal capacity or sufficient authorization to do so.
+
+Governing law: Spanish law.

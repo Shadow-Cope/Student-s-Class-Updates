@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="system">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Student's Class</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" type="image/svg+xml" href="logo.svg" />
+</head>
+<body>
+<header class="topbar">
+  <button id="menuBtn" class="icon-btn" aria-label="Menu">☰</button>
+  <div class="brand" id="brandHome">
+    <img src="logo.svg" alt="Student's Class logo" class="brand-logo" />
+    <span>Student's Class</span>
+  </div>
+  <div class="search-wrap">
+    <span class="search-icon">⌕</span>
+    <input id="searchInput" type="search" placeholder="Search" autocomplete="off" data-i18n-ph="search" />
+  </div>
+  <div class="top-actions">
+    <button id="cloudBtn" class="icon-btn" title="Cloud">○</button>
+    <button id="quickThemeBtn" class="icon-btn" title="Toggle theme">◐</button>
+    <button id="avatarBtn" class="avatar-btn" title="Profile">
+      <img id="topAvatar" alt="profile" hidden />
+      <span id="topAvatarFallback">?</span>
+    </button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="side-group">
+      <button class="nav-btn active" data-route="home" data-i18n="home">Home</button>
+      <button class="nav-btn" data-route="todo" data-i18n="todo">To-do</button>
+      <button class="nav-btn" data-route="calendar" data-i18n="calendar">Calendar</button>
+      <button class="nav-btn" data-route="archived" data-i18n="archived">Archived</button>
+      <button class="nav-btn" data-route="settings" data-i18n="settings">Settings</button>
+    </nav>
+    <div class="side-group">
+      <p class="side-label" data-i18n="classes">Classes</p>
+      <button class="nav-btn action" id="createClassBtn" data-i18n="createClass">Create class</button>
+      <button class="nav-btn action" id="joinClassBtn" data-i18n="joinClass">Join class</button>
+      <div id="sideClassList" class="side-class-list"></div>
+    </div>
+    <div class="side-footer">
+      <p>Local classes stay in this browser. Online classes sync via the cloud.</p>
+    </div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <main class="content" id="view"></main>
+</div>
+
+<div id="modalRoot"></div>
+<div id="toastRoot" aria-live="polite"></div>
+<div id="fxRoot"></div>
+
+<!-- Firebase (optional cloud sync — ignored when offline or unconfigured) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="legal.js"></script>
+<script src="app.js"></script>
+<script src="firebase-cloud.js"></script>
+</body>
+</html>
