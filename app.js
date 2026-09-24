@@ -453,7 +453,7 @@ function viewCalendar() {
       <button class="btn small" id="calNext">${t("next")} ›</button>
       <button class="btn small" id="calToday">${t("today")}</button>
     </div>
-    <div class="cal-week"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+    <div class="cal-week">${[0, 1, 2, 3, 4, 5, 6].map(i => `<span>${esc(new Date(2024, 0, 1 + i).toLocaleString(locale(), { weekday: "short" }))}</span>`).join("")}</div>
     <div class="cal-grid">${cells}</div>
     <div class="cal-list">
       <h3 style="font-size:14px;margin:14px 0 8px">${tf("dueIn", { m: monthName })} (${sorted.length})</h3>
@@ -489,7 +489,7 @@ function viewSettings() {
     </div>
     <div>
       <div class="card"><h3>${t("profileSec")}</h3>
-        ${profile ? `<dl class="kv"><dt>${t("nameLbl")}</dt><dd>${esc(profile.firstName)} ${esc(profile.lastName)}</dd><dt>Email</dt><dd>${esc(profile.email)}</dd><dt>${t("roleLbl")}</dt><dd>${profile.role === "teacher" ? t("teacherRole") : t("studentRole")}</dd><dt>Bio</dt><dd>${esc(profile.bio || "-")}</dd></dl>
+        ${profile ? `<dl class="kv"><dt>${t("nameLbl")}</dt><dd>${esc(profile.firstName)} ${esc(profile.lastName)}</dd><dt>${t("emailWord")}</dt><dd>${esc(profile.email)}</dd><dt>${t("roleLbl")}</dt><dd>${profile.role === "teacher" ? t("teacherRole") : t("studentRole")}</dd><dt>${t("bioWord")}</dt><dd>${esc(profile.bio || "-")}</dd></dl>
         <div class="btn-row" style="margin-top:12px"><button class="btn primary" id="editProfile">${t("editProfile")}</button></div>`
           : `<p class="muted">${t("noProfile")}</p><button class="btn primary" id="editProfile">${t("createProfile")}</button>`}
       </div>
@@ -545,7 +545,7 @@ function viewClass() {
   return `<button class="btn small" id="backHome">‹ ${t("backAll")}</button>
   <div class="banner-hero" style="${bannerStyle(c.color)};margin-top:12px"><h1>${esc(c.name)}</h1><p>${esc([c.subject, c.section, c.room].filter(Boolean).join(" · "))}</p>
     <div class="class-meta"><span class="chip">${esc(c.code)}</span><span class="chip">${c.members.length} ${t("membersWord")}</span><span class="chip">${c.assignments.filter(a => !a.done).length} ${t("pendingWord")}</span></div></div>
-  <div class="tabs"><button class="tab ${tab === "stream" ? "active" : ""}" data-tab="stream">Stream</button><button class="tab ${tab === "classwork" ? "active" : ""}" data-tab="classwork">Classwork</button><button class="tab ${tab === "people" ? "active" : ""}" data-tab="people">People</button></div>
+  <div class="tabs"><button class="tab ${tab === "stream" ? "active" : ""}" data-tab="stream">${t("tabStream")}</button><button class="tab ${tab === "classwork" ? "active" : ""}" data-tab="classwork">${t("tabClasswork")}</button><button class="tab ${tab === "people" ? "active" : ""}" data-tab="people">${t("tabPeople")}</button></div>
   ${body}`;
 }
 
@@ -641,7 +641,7 @@ function bindCommon() {
         if (!r) return;
         if (r.status === "uptodate") toast("✓ " + t("upToDate"), true);
         else if (r.status === "downloading") toast(t("downloadingUpdate") + (r.version ? " " + r.version : ""));
-        else if (r.status === "error") toast(t("noNet"));
+        else if (r.status === "error") toast(t("updateError"));
       });
     }
   } else {
@@ -652,7 +652,7 @@ function bindCommon() {
     if (!window.SCAPI) return;
     toast(t("checkingUpdates"));
     try { await window.SCAPI.checkUpdates(); }
-    catch (e) { toast(t("noNet")); }
+    catch (e) { toast(t("updateError")); }
   });
 }
 

@@ -118,7 +118,11 @@ function wireUpdater() {
   });
 
   // Mid-session: an update found while the app is open still downloads automatically.
+  // NOTE: launch-phase check errors must stay silent (a failed first check often
+  // emits a second "error" right after the main window opens — that ghost event
+  // must never toast). Only checks started once the app is running may notify.
   const notifyRenderer = (status, extra) => {
+    if (!updateCheckDone) return;
     if (mainShown && mainWindow && !mainWindow.isDestroyed()) {
       try { mainWindow.webContents.send("sc-update-result", { status, ...(extra || {}) }); } catch (e) {}
     }
