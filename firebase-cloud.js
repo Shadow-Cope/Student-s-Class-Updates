@@ -7,11 +7,11 @@
 
   /* ---------- extra translations (merged into app i18n) ---------- */
   const EXTRA = {
-    en: { cloud: "Cloud", onlineClasses: "Online classes", thisDevice: "On this device", cloudOff: "Cloud sync is off. Add your Firebase keys to enable it.", signInToSync: "Sign in to sync classes across devices.", signIn: "Sign in", createAccount: "Create account", guestBtn: "Continue as guest", emailAddr: "Email", passwd: "Password", logoutBtn: "Log out", needAuth: "Sign in first.", onlineLabel: "Online class (syncs across devices)", cloudAcc: "Cloud account", signedInCloud: "Signed in", cloudCreated: "Online class created. Code: ", cloudJoined: "Joined online class ", noNet: "No connection to the cloud.", delClass: "Delete class", delClassConfirm: "Delete this online class for everyone?", classDeleted: "Online class deleted", announceHw: "Also post to announcements", hwBadge: "Homework", authTitle: "Welcome back", authSub: "Sign in to sync your classes on every device.", orWord: "or", authNote: "Your classes stay private to your account. We never sell your data.", legal: "Legal", legalSub: "Terms, privacy and cookies.", termsBtn: "Terms & conditions", privBtn: "Privacy policy", cookieBtn: "Cookie policy", closeBtn: "Close", updates: "Updates", updatesSub: "The app updates itself. Updates are required to keep using it.", checkUpdates: "Check for updates", checkingUpdates: "Checking for updates…", upToDate: "You're up to date", downloadingUpdate: "Downloading required update…", updateError: "Couldn't check for updates", tabStream: "Stream", tabClasswork: "Classwork", tabPeople: "People", emailWord: "Email", bioWord: "Bio", statusWord: "Status", guestWord: "Guest", grades: "Grades", yourAverage: "Your average", setGrades: "Set grades", notGraded: "Not graded", gradeRange: "Grade must be between 0 and {m}", gradesSaved: "Grades saved", pin: "Pin", unpin: "Unpin", pinBadge: "Pinned", comments: "Comments", noComments: "No comments yet", commentBtn: "Send", commentPh: "Write a comment…", dueSoon: "Due soon", panel: "Panel", submissions: "Submissions", submit: "Submit", yourSubmission: "Your submission", feedback: "Feedback", submitted: "Submitted", noSubmissions: "No submissions yet", classAverage: "Class average", tasks: "Tasks", linkWarnTitle: "External link", linkWarnMsg: "Links are not verified by Student's Class. Opening them is at your own risk.", visitLink: "Visit link", perms: "Permissions", permsSub: "What this member can do in this class.", permAnnounce: "Create announcements", permHomework: "Create homework", permGrades: "Grade and give feedback", permPanel: "View teacher panel", permsSaved: "Permissions saved", submitPh: "Paste your work or a link…" },
-    es: { cloud: "Nube", onlineClasses: "Clases en línea", thisDevice: "En este dispositivo", cloudOff: "La nube está desactivada. Añade tus claves de Firebase.", signInToSync: "Inicia sesión para sincronizar tus clases.", signIn: "Iniciar sesión", createAccount: "Crear cuenta", guestBtn: "Entrar como invitado", emailAddr: "Correo", passwd: "Contraseña", logoutBtn: "Cerrar sesión", needAuth: "Inicia sesión primero.", onlineLabel: "Clase en línea (se sincroniza)", cloudAcc: "Cuenta en la nube", signedInCloud: "Sesión iniciada", cloudCreated: "Clase en línea creada. Código: ", cloudJoined: "Te uniste a ", noNet: "Sin conexión con la nube.", delClass: "Eliminar clase", delClassConfirm: "¿Eliminar esta clase en línea para todos?", classDeleted: "Clase en línea eliminada", announceHw: "Publicar también en anuncios", hwBadge: "Tarea", authTitle: "Bienvenido de nuevo", authSub: "Inicia sesión para sincronizar tus clases en todos los dispositivos.", orWord: "o", authNote: "Tus clases son privadas. Nunca vendemos tus datos.", legal: "Legal", legalSub: "Términos, privacidad y cookies.", termsBtn: "Términos y condiciones", privBtn: "Política de privacidad", cookieBtn: "Política de cookies", closeBtn: "Cerrar", updates: "Actualizaciones", updatesSub: "La app se actualiza sola. Las actualizaciones son obligatorias para seguir usándola.", checkUpdates: "Buscar actualizaciones", checkingUpdates: "Buscando actualizaciones…", upToDate: "Tienes la última versión", downloadingUpdate: "Descargando actualización obligatoria…", updateError: "No se pudieron buscar actualizaciones", tabStream: "Tablón", tabClasswork: "Trabajo", tabPeople: "Personas", emailWord: "Correo", bioWord: "Biografía", statusWord: "Estado", guestWord: "Invitado", grades: "Notas", yourAverage: "Tu media", setGrades: "Poner notas", notGraded: "Sin nota", gradeRange: "La nota debe estar entre 0 y {m}", gradesSaved: "Notas guardadas", pin: "Fijar", unpin: "Quitar", pinBadge: "Fijada", comments: "Comentarios", noComments: "Aún no hay comentarios", commentBtn: "Enviar", commentPh: "Escribe un comentario…", dueSoon: "Vence pronto", panel: "Panel", submissions: "Entregas", submit: "Entregar", yourSubmission: "Tu entrega", feedback: "Corrección", submitted: "Entregada", noSubmissions: "Aún no hay entregas", classAverage: "Media de la clase", tasks: "Tareas", linkWarnTitle: "Enlace externo", linkWarnMsg: "Los enlaces no están verificados por Student's Class. Abrirlos es bajo tu responsabilidad.", visitLink: "Visitar enlace", perms: "Permisos", permsSub: "Lo que este miembro puede hacer en esta clase.", permAnnounce: "Crear anuncios", permHomework: "Crear tareas", permGrades: "Poner notas y corregir", permPanel: "Ver panel del profe", permsSaved: "Permisos guardados", submitPh: "Pega tu trabajo o un enlace…" },
-    pt: { cloud: "Nuvem", onlineClasses: "Turmas online", thisDevice: "Neste dispositivo", cloudOff: "Sincronização desligada. Adiciona as chaves do Firebase.", signInToSync: "Inicia sessão para sincronizar.", signIn: "Iniciar sessão", createAccount: "Criar conta", guestBtn: "Entrar como convidado", emailAddr: "Email", passwd: "Palavra-passe", logoutBtn: "Terminar sessão", needAuth: "Inicia sessão primeiro.", onlineLabel: "Turma online (sincroniza)", cloudAcc: "Conta na nuvem", signedInCloud: "Sessão iniciada", cloudCreated: "Turma online criada. Código: ", cloudJoined: "Entraste em ", noNet: "Sem ligação à nuvem.", delClass: "Eliminar turma", delClassConfirm: "Eliminar esta turma online para todos?", classDeleted: "Turma online eliminada", announceHw: "Publicar também nos anúncios", hwBadge: "Trabalho", authTitle: "Bem-vindo de volta", authSub: "Inicia sessão para sincronizar as tuas turmas.", orWord: "ou", authNote: "As tuas turmas são privadas. Nunca vendemos os teus dados.", legal: "Legal", legalSub: "Termos, privacidade e cookies.", termsBtn: "Termos e condições", privBtn: "Política de privacidade", cookieBtn: "Política de cookies", closeBtn: "Fechar", updates: "Atualizações", updatesSub: "A app atualiza-se sozinha. As atualizações são obrigatórias.", checkUpdates: "Procurar atualizações", checkingUpdates: "A procurar atualizações…", upToDate: "Tens a versão mais recente", downloadingUpdate: "A descarregar atualização obrigatória…", updateError: "Não foi possível procurar atualizações", tabStream: "Mural", tabClasswork: "Trabalhos", tabPeople: "Pessoas", emailWord: "Email", bioWord: "Bio", statusWord: "Estado", guestWord: "Convidado", grades: "Notas", yourAverage: "Tua média", setGrades: "Dar notas", notGraded: "Sem nota", gradeRange: "A nota deve estar entre 0 e {m}", gradesSaved: "Notas guardadas", pin: "Afixar", unpin: "Desafixar", pinBadge: "Afixado", comments: "Comentários", noComments: "Ainda sem comentários", commentBtn: "Enviar", commentPh: "Escreve um comentário…", dueSoon: "Vence em breve", panel: "Painel", submissions: "Entregas", submit: "Entregar", yourSubmission: "Tua entrega", feedback: "Correção", submitted: "Entregue", noSubmissions: "Ainda sem entregas", classAverage: "Média da turma", tasks: "Tarefas", linkWarnTitle: "Ligação externa", linkWarnMsg: "As ligações não são verificadas pelo Student's Class. Abri-las é por tua conta e risco.", visitLink: "Visitar ligação", perms: "Permissões", permsSub: "O que este membro pode fazer nesta turma.", permAnnounce: "Criar anúncios", permHomework: "Criar trabalhos", permGrades: "Dar notas e corrigir", permPanel: "Ver painel do professor", permsSaved: "Permissões guardadas", submitPh: "Cola o teu trabalho ou uma ligação…" },
-    fr: { cloud: "Cloud", onlineClasses: "Cours en ligne", thisDevice: "Sur cet appareil", cloudOff: "Sync désactivée. Ajoutez vos clés Firebase.", signInToSync: "Connectez-vous pour synchroniser.", signIn: "Se connecter", createAccount: "Créer un compte", guestBtn: "Continuer en invité", emailAddr: "Email", passwd: "Mot de passe", logoutBtn: "Se déconnecter", needAuth: "Connectez-vous d'abord.", onlineLabel: "Cours en ligne (synchronisé)", cloudAcc: "Compte cloud", signedInCloud: "Connecté", cloudCreated: "Cours en ligne créé. Code : ", cloudJoined: "Cours rejoint : ", noNet: "Pas de connexion au cloud.", delClass: "Supprimer le cours", delClassConfirm: "Supprimer ce cours en ligne pour tous ?", classDeleted: "Cours en ligne supprimé", announceHw: "Publier aussi dans les annonces", hwBadge: "Devoir", authTitle: "Bon retour", authSub: "Connectez-vous pour synchroniser vos cours.", orWord: "ou", authNote: "Vos cours restent privés. Nous ne vendons jamais vos données.", legal: "Légal", legalSub: "Conditions, confidentialité et cookies.", termsBtn: "Conditions d'utilisation", privBtn: "Politique de confidentialité", cookieBtn: "Politique cookies", closeBtn: "Fermer", updates: "Mises à jour", updatesSub: "L'app se met à jour toute seule. Les mises à jour sont obligatoires.", checkUpdates: "Vérifier les mises à jour", checkingUpdates: "Vérification…", upToDate: "Vous êtes à jour", downloadingUpdate: "Téléchargement de la mise à jour…", updateError: "Impossible de vérifier les mises à jour", tabStream: "Flux", tabClasswork: "Devoirs", tabPeople: "Participants", emailWord: "E-mail", bioWord: "Bio", statusWord: "Statut", guestWord: "Invité", grades: "Notes", yourAverage: "Ta moyenne", setGrades: "Noter", notGraded: "Sans note", gradeRange: "La note doit être entre 0 et {m}", gradesSaved: "Notes enregistrées", pin: "Épingler", unpin: "Désépingler", pinBadge: "Épinglé", comments: "Commentaires", noComments: "Pas encore de commentaires", commentBtn: "Envoyer", commentPh: "Écris un commentaire…", dueSoon: "Échéance proche", panel: "Tableau", submissions: "Remises", submit: "Rendre", yourSubmission: "Ton rendu", feedback: "Correction", submitted: "Rendu", noSubmissions: "Aucune remise", classAverage: "Moyenne du cours", tasks: "Devoirs", linkWarnTitle: "Lien externe", linkWarnMsg: "Les liens ne sont pas vérifiés par Student's Class. Les ouvrir est à vos risques.", visitLink: "Visiter le lien", perms: "Permissions", permsSub: "Ce que ce membre peut faire dans ce cours.", permAnnounce: "Créer des annonces", permHomework: "Créer des devoirs", permGrades: "Noter et corriger", permPanel: "Voir le tableau", permsSaved: "Permissions enregistrées", submitPh: "Colle ton travail ou un lien…" },
-    de: { cloud: "Cloud", onlineClasses: "Online-Klassen", thisDevice: "Auf diesem Gerät", cloudOff: "Cloud-Sync ist aus. Füge deine Firebase-Schlüssel hinzu.", signInToSync: "Melde dich an, um zu synchronisieren.", signIn: "Anmelden", createAccount: "Konto erstellen", guestBtn: "Als Gast fortfahren", emailAddr: "E-Mail", passwd: "Passwort", logoutBtn: "Abmelden", needAuth: "Melde dich zuerst an.", onlineLabel: "Online-Klasse (wird synchronisiert)", cloudAcc: "Cloud-Konto", signedInCloud: "Angemeldet", cloudCreated: "Online-Klasse erstellt. Code: ", cloudJoined: "Beigetreten: ", noNet: "Keine Verbindung zur Cloud.", delClass: "Klasse löschen", delClassConfirm: "Diese Online-Klasse für alle löschen?", classDeleted: "Online-Klasse gelöscht", announceHw: "Auch in Mitteilungen posten", hwBadge: "Hausaufgabe", authTitle: "Willkommen zurück", authSub: "Melde dich an, um deine Klassen zu synchronisieren.", orWord: "oder", authNote: "Deine Klassen bleiben privat. Wir verkaufen keine Daten.", legal: "Rechtliches", legalSub: "Bedingungen, Datenschutz und Cookies.", termsBtn: "Nutzungsbedingungen", privBtn: "Datenschutzerklärung", cookieBtn: "Cookie-Richtlinie", closeBtn: "Schließen", updates: "Updates", updatesSub: "Die App aktualisiert sich selbst. Updates sind Pflicht.", checkUpdates: "Nach Updates suchen", checkingUpdates: "Suche nach Updates…", upToDate: "Du bist auf dem neuesten Stand", downloadingUpdate: "Pflicht-Update wird heruntergeladen…", updateError: "Updates konnten nicht geprüft werden", tabStream: "Stream", tabClasswork: "Aufgaben", tabPeople: "Personen", emailWord: "E-Mail", bioWord: "Bio", statusWord: "Status", guestWord: "Gast", grades: "Noten", yourAverage: "Dein Schnitt", setGrades: "Benoten", notGraded: "Ohne Note", gradeRange: "Note muss zwischen 0 und {m} liegen", gradesSaved: "Noten gespeichert", pin: "Anheften", unpin: "Lösen", pinBadge: "Angeheftet", comments: "Kommentare", noComments: "Noch keine Kommentare", commentBtn: "Senden", commentPh: "Schreib einen Kommentar…", dueSoon: "Fällig bald", panel: "Dashboard", submissions: "Abgaben", submit: "Abgeben", yourSubmission: "Deine Abgabe", feedback: "Feedback", submitted: "Abgegeben", noSubmissions: "Noch keine Abgaben", classAverage: "Klassenschnitt", tasks: "Aufgaben", linkWarnTitle: "Externer Link", linkWarnMsg: "Links werden nicht von Student's Class geprüft. Öffnen auf eigenes Risiko.", visitLink: "Link besuchen", perms: "Berechtigungen", permsSub: "Was dieses Mitglied in dieser Klasse darf.", permAnnounce: "Mitteilungen erstellen", permHomework: "Aufgaben erstellen", permGrades: "Benoten und Feedback", permPanel: "Dashboard sehen", permsSaved: "Berechtigungen gespeichert", submitPh: "Füge deine Arbeit oder einen Link ein…" }
+    en: { cloud: "Cloud", onlineClasses: "Online classes", thisDevice: "On this device", cloudOff: "Cloud sync is off. Add your Firebase keys to enable it.", signInToSync: "Sign in to sync classes across devices.", signIn: "Sign in", createAccount: "Create account", guestBtn: "Continue as guest", emailAddr: "Email", passwd: "Password", logoutBtn: "Log out", needAuth: "Sign in first.", onlineLabel: "Online class (syncs across devices)", cloudAcc: "Cloud account", signedInCloud: "Signed in", cloudCreated: "Online class created. Code: ", cloudJoined: "Joined online class ", noNet: "No connection to the cloud.", delClass: "Delete class", delClassConfirm: "Delete this online class for everyone?", classDeleted: "Online class deleted", announceHw: "Also post to announcements", hwBadge: "Homework", authTitle: "Welcome back", authSub: "Sign in to sync your classes on every device.", orWord: "or", authNote: "Your classes stay private to your account. We never sell your data.", legal: "Legal", legalSub: "Terms, privacy and cookies.", termsBtn: "Terms & conditions", privBtn: "Privacy policy", cookieBtn: "Cookie policy", closeBtn: "Close", updates: "Updates", updatesSub: "The app updates itself. Updates are required to keep using it.", checkUpdates: "Check for updates", checkingUpdates: "Checking for updates…", upToDate: "You're up to date", downloadingUpdate: "Downloading required update…", updateError: "Couldn't check for updates", tabStream: "Stream", tabClasswork: "Classwork", tabPeople: "People", emailWord: "Email", bioWord: "Bio", statusWord: "Status", guestWord: "Guest", grades: "Grades", yourAverage: "Your average", setGrades: "Set grades", notGraded: "Not graded", gradeRange: "Grade must be between 0 and {m}", gradesSaved: "Grades saved", pin: "Pin", unpin: "Unpin", pinBadge: "Pinned", comments: "Comments", noComments: "No comments yet", commentBtn: "Send", commentPh: "Write a comment…", dueSoon: "Due soon", panel: "Panel", submissions: "Submissions", submit: "Submit", yourSubmission: "Your submission", feedback: "Feedback", submitted: "Submitted", noSubmissions: "No submissions yet", classAverage: "Class average", tasks: "Tasks", linkWarnTitle: "External link", linkWarnMsg: "Links are not verified by Student's Class. Opening them is at your own risk.", visitLink: "Visit link", perms: "Permissions", permsSub: "What this member can do in this class.", permAnnounce: "Create announcements", permHomework: "Create homework", permGrades: "Grade and give feedback", permPanel: "View teacher panel", permsSaved: "Permissions saved", submitPh: "Paste your work or a link…", newActivity: "New activity" },
+    es: { cloud: "Nube", onlineClasses: "Clases en línea", thisDevice: "En este dispositivo", cloudOff: "La nube está desactivada. Añade tus claves de Firebase.", signInToSync: "Inicia sesión para sincronizar tus clases.", signIn: "Iniciar sesión", createAccount: "Crear cuenta", guestBtn: "Entrar como invitado", emailAddr: "Correo", passwd: "Contraseña", logoutBtn: "Cerrar sesión", needAuth: "Inicia sesión primero.", onlineLabel: "Clase en línea (se sincroniza)", cloudAcc: "Cuenta en la nube", signedInCloud: "Sesión iniciada", cloudCreated: "Clase en línea creada. Código: ", cloudJoined: "Te uniste a ", noNet: "Sin conexión con la nube.", delClass: "Eliminar clase", delClassConfirm: "¿Eliminar esta clase en línea para todos?", classDeleted: "Clase en línea eliminada", announceHw: "Publicar también en anuncios", hwBadge: "Tarea", authTitle: "Bienvenido de nuevo", authSub: "Inicia sesión para sincronizar tus clases en todos los dispositivos.", orWord: "o", authNote: "Tus clases son privadas. Nunca vendemos tus datos.", legal: "Legal", legalSub: "Términos, privacidad y cookies.", termsBtn: "Términos y condiciones", privBtn: "Política de privacidad", cookieBtn: "Política de cookies", closeBtn: "Cerrar", updates: "Actualizaciones", updatesSub: "La app se actualiza sola. Las actualizaciones son obligatorias para seguir usándola.", checkUpdates: "Buscar actualizaciones", checkingUpdates: "Buscando actualizaciones…", upToDate: "Tienes la última versión", downloadingUpdate: "Descargando actualización obligatoria…", updateError: "No se pudieron buscar actualizaciones", tabStream: "Tablón", tabClasswork: "Trabajo", tabPeople: "Personas", emailWord: "Correo", bioWord: "Biografía", statusWord: "Estado", guestWord: "Invitado", grades: "Notas", yourAverage: "Tu media", setGrades: "Poner notas", notGraded: "Sin nota", gradeRange: "La nota debe estar entre 0 y {m}", gradesSaved: "Notas guardadas", pin: "Fijar", unpin: "Quitar", pinBadge: "Fijada", comments: "Comentarios", noComments: "Aún no hay comentarios", commentBtn: "Enviar", commentPh: "Escribe un comentario…", dueSoon: "Vence pronto", panel: "Panel", submissions: "Entregas", submit: "Entregar", yourSubmission: "Tu entrega", feedback: "Corrección", submitted: "Entregada", noSubmissions: "Aún no hay entregas", classAverage: "Media de la clase", tasks: "Tareas", linkWarnTitle: "Enlace externo", linkWarnMsg: "Los enlaces no están verificados por Student's Class. Abrirlos es bajo tu responsabilidad.", visitLink: "Visitar enlace", perms: "Permisos", permsSub: "Lo que este miembro puede hacer en esta clase.", permAnnounce: "Crear anuncios", permHomework: "Crear tareas", permGrades: "Poner notas y corregir", permPanel: "Ver panel del profe", permsSaved: "Permisos guardados", submitPh: "Pega tu trabajo o un enlace…", newActivity: "Novedad" },
+    pt: { cloud: "Nuvem", onlineClasses: "Turmas online", thisDevice: "Neste dispositivo", cloudOff: "Sincronização desligada. Adiciona as chaves do Firebase.", signInToSync: "Inicia sessão para sincronizar.", signIn: "Iniciar sessão", createAccount: "Criar conta", guestBtn: "Entrar como convidado", emailAddr: "Email", passwd: "Palavra-passe", logoutBtn: "Terminar sessão", needAuth: "Inicia sessão primeiro.", onlineLabel: "Turma online (sincroniza)", cloudAcc: "Conta na nuvem", signedInCloud: "Sessão iniciada", cloudCreated: "Turma online criada. Código: ", cloudJoined: "Entraste em ", noNet: "Sem ligação à nuvem.", delClass: "Eliminar turma", delClassConfirm: "Eliminar esta turma online para todos?", classDeleted: "Turma online eliminada", announceHw: "Publicar também nos anúncios", hwBadge: "Trabalho", authTitle: "Bem-vindo de volta", authSub: "Inicia sessão para sincronizar as tuas turmas.", orWord: "ou", authNote: "As tuas turmas são privadas. Nunca vendemos os teus dados.", legal: "Legal", legalSub: "Termos, privacidade e cookies.", termsBtn: "Termos e condições", privBtn: "Política de privacidade", cookieBtn: "Política de cookies", closeBtn: "Fechar", updates: "Atualizações", updatesSub: "A app atualiza-se sozinha. As atualizações são obrigatórias.", checkUpdates: "Procurar atualizações", checkingUpdates: "A procurar atualizações…", upToDate: "Tens a versão mais recente", downloadingUpdate: "A descarregar atualização obrigatória…", updateError: "Não foi possível procurar atualizações", tabStream: "Mural", tabClasswork: "Trabalhos", tabPeople: "Pessoas", emailWord: "Email", bioWord: "Bio", statusWord: "Estado", guestWord: "Convidado", grades: "Notas", yourAverage: "Tua média", setGrades: "Dar notas", notGraded: "Sem nota", gradeRange: "A nota deve estar entre 0 e {m}", gradesSaved: "Notas guardadas", pin: "Afixar", unpin: "Desafixar", pinBadge: "Afixado", comments: "Comentários", noComments: "Ainda sem comentários", commentBtn: "Enviar", commentPh: "Escreve um comentário…", dueSoon: "Vence em breve", panel: "Painel", submissions: "Entregas", submit: "Entregar", yourSubmission: "Tua entrega", feedback: "Correção", submitted: "Entregue", noSubmissions: "Ainda sem entregas", classAverage: "Média da turma", tasks: "Tarefas", linkWarnTitle: "Ligação externa", linkWarnMsg: "As ligações não são verificadas pelo Student's Class. Abri-las é por tua conta e risco.", visitLink: "Visitar ligação", perms: "Permissões", permsSub: "O que este membro pode fazer nesta turma.", permAnnounce: "Criar anúncios", permHomework: "Criar trabalhos", permGrades: "Dar notas e corrigir", permPanel: "Ver painel do professor", permsSaved: "Permissões guardadas", submitPh: "Cola o teu trabalho ou uma ligação…", newActivity: "Novidade" },
+    fr: { cloud: "Cloud", onlineClasses: "Cours en ligne", thisDevice: "Sur cet appareil", cloudOff: "Sync désactivée. Ajoutez vos clés Firebase.", signInToSync: "Connectez-vous pour synchroniser.", signIn: "Se connecter", createAccount: "Créer un compte", guestBtn: "Continuer en invité", emailAddr: "Email", passwd: "Mot de passe", logoutBtn: "Se déconnecter", needAuth: "Connectez-vous d'abord.", onlineLabel: "Cours en ligne (synchronisé)", cloudAcc: "Compte cloud", signedInCloud: "Connecté", cloudCreated: "Cours en ligne créé. Code : ", cloudJoined: "Cours rejoint : ", noNet: "Pas de connexion au cloud.", delClass: "Supprimer le cours", delClassConfirm: "Supprimer ce cours en ligne pour tous ?", classDeleted: "Cours en ligne supprimé", announceHw: "Publier aussi dans les annonces", hwBadge: "Devoir", authTitle: "Bon retour", authSub: "Connectez-vous pour synchroniser vos cours.", orWord: "ou", authNote: "Vos cours restent privés. Nous ne vendons jamais vos données.", legal: "Légal", legalSub: "Conditions, confidentialité et cookies.", termsBtn: "Conditions d'utilisation", privBtn: "Politique de confidentialité", cookieBtn: "Politique cookies", closeBtn: "Fermer", updates: "Mises à jour", updatesSub: "L'app se met à jour toute seule. Les mises à jour sont obligatoires.", checkUpdates: "Vérifier les mises à jour", checkingUpdates: "Vérification…", upToDate: "Vous êtes à jour", downloadingUpdate: "Téléchargement de la mise à jour…", updateError: "Impossible de vérifier les mises à jour", tabStream: "Flux", tabClasswork: "Devoirs", tabPeople: "Participants", emailWord: "E-mail", bioWord: "Bio", statusWord: "Statut", guestWord: "Invité", grades: "Notes", yourAverage: "Ta moyenne", setGrades: "Noter", notGraded: "Sans note", gradeRange: "La note doit être entre 0 et {m}", gradesSaved: "Notes enregistrées", pin: "Épingler", unpin: "Désépingler", pinBadge: "Épinglé", comments: "Commentaires", noComments: "Pas encore de commentaires", commentBtn: "Envoyer", commentPh: "Écris un commentaire…", dueSoon: "Échéance proche", panel: "Tableau", submissions: "Remises", submit: "Rendre", yourSubmission: "Ton rendu", feedback: "Correction", submitted: "Rendu", noSubmissions: "Aucune remise", classAverage: "Moyenne du cours", tasks: "Devoirs", linkWarnTitle: "Lien externe", linkWarnMsg: "Les liens ne sont pas vérifiés par Student's Class. Les ouvrir est à vos risques.", visitLink: "Visiter le lien", perms: "Permissions", permsSub: "Ce que ce membre peut faire dans ce cours.", permAnnounce: "Créer des annonces", permHomework: "Créer des devoirs", permGrades: "Noter et corriger", permPanel: "Voir le tableau", permsSaved: "Permissions enregistrées", submitPh: "Colle ton travail ou un lien…", newActivity: "Nouveauté" },
+    de: { cloud: "Cloud", onlineClasses: "Online-Klassen", thisDevice: "Auf diesem Gerät", cloudOff: "Cloud-Sync ist aus. Füge deine Firebase-Schlüssel hinzu.", signInToSync: "Melde dich an, um zu synchronisieren.", signIn: "Anmelden", createAccount: "Konto erstellen", guestBtn: "Als Gast fortfahren", emailAddr: "E-Mail", passwd: "Passwort", logoutBtn: "Abmelden", needAuth: "Melde dich zuerst an.", onlineLabel: "Online-Klasse (wird synchronisiert)", cloudAcc: "Cloud-Konto", signedInCloud: "Angemeldet", cloudCreated: "Online-Klasse erstellt. Code: ", cloudJoined: "Beigetreten: ", noNet: "Keine Verbindung zur Cloud.", delClass: "Klasse löschen", delClassConfirm: "Diese Online-Klasse für alle löschen?", classDeleted: "Online-Klasse gelöscht", announceHw: "Auch in Mitteilungen posten", hwBadge: "Hausaufgabe", authTitle: "Willkommen zurück", authSub: "Melde dich an, um deine Klassen zu synchronisieren.", orWord: "oder", authNote: "Deine Klassen bleiben privat. Wir verkaufen keine Daten.", legal: "Rechtliches", legalSub: "Bedingungen, Datenschutz und Cookies.", termsBtn: "Nutzungsbedingungen", privBtn: "Datenschutzerklärung", cookieBtn: "Cookie-Richtlinie", closeBtn: "Schließen", updates: "Updates", updatesSub: "Die App aktualisiert sich selbst. Updates sind Pflicht.", checkUpdates: "Nach Updates suchen", checkingUpdates: "Suche nach Updates…", upToDate: "Du bist auf dem neuesten Stand", downloadingUpdate: "Pflicht-Update wird heruntergeladen…", updateError: "Updates konnten nicht geprüft werden", tabStream: "Stream", tabClasswork: "Aufgaben", tabPeople: "Personen", emailWord: "E-Mail", bioWord: "Bio", statusWord: "Status", guestWord: "Gast", grades: "Noten", yourAverage: "Dein Schnitt", setGrades: "Benoten", notGraded: "Ohne Note", gradeRange: "Note muss zwischen 0 und {m} liegen", gradesSaved: "Noten gespeichert", pin: "Anheften", unpin: "Lösen", pinBadge: "Angeheftet", comments: "Kommentare", noComments: "Noch keine Kommentare", commentBtn: "Senden", commentPh: "Schreib einen Kommentar…", dueSoon: "Fällig bald", panel: "Dashboard", submissions: "Abgaben", submit: "Abgeben", yourSubmission: "Deine Abgabe", feedback: "Feedback", submitted: "Abgegeben", noSubmissions: "Noch keine Abgaben", classAverage: "Klassenschnitt", tasks: "Aufgaben", linkWarnTitle: "Externer Link", linkWarnMsg: "Links werden nicht von Student's Class geprüft. Öffnen auf eigenes Risiko.", visitLink: "Link besuchen", perms: "Berechtigungen", permsSub: "Was dieses Mitglied in dieser Klasse darf.", permAnnounce: "Mitteilungen erstellen", permHomework: "Aufgaben erstellen", permGrades: "Benoten und Feedback", permPanel: "Dashboard sehen", permsSaved: "Berechtigungen gespeichert", submitPh: "Füge deine Arbeit oder einen Link ein…", newActivity: "Neuigkeit" }
   };
   function mergeExtra() {
     try {
@@ -101,6 +101,8 @@
     Cloud._unsubs.forEach(u => { try { u(); } catch (e) {} });
     Cloud._unsubs = [];
     Cloud.cloudClasses = [];
+    Cloud.unread = {};
+    clearInterval(Cloud._pollTimer);
     Cloud.closeDetail();
   }
 
@@ -137,8 +139,146 @@
           merge();
         }, () => {});
       Cloud._unsubs.push(q1, q2);
+      // Background poll for new activity in closed classes (badges + toast).
+      clearInterval(Cloud._pollTimer);
+      setTimeout(() => { try { Cloud.pollNew(); } catch (e) {} }, 20000);
+      Cloud._pollTimer = setInterval(() => { try { Cloud.pollNew(); } catch (e) {} }, 3 * 60 * 1000);
     } catch (e) {}
   }
+
+  /* ---------- unread tracking + new-activity notifications (1.3.1) ---------- */
+  const LS_READ = "sc_read_v1";
+  Cloud.read = null;   // { cid: {p,a,fb,g:{aid:val},init} }
+  Cloud.unread = {};   // { cid: n }
+  Cloud._pollTimer = null;
+  function readStore() {
+    if (!Cloud.read) { try { Cloud.read = JSON.parse(localStorage.getItem(LS_READ) || "{}") || {}; } catch (e) { Cloud.read = {}; } }
+    return Cloud.read;
+  }
+  function saveRead() { try { localStorage.setItem(LS_READ, JSON.stringify(Cloud.read || {})); } catch (e) {} }
+  function tsOf(v) {
+    const d = (v && v.toDate) ? v.toDate() : new Date(v);
+    const x = d ? d.getTime() : 0;
+    return isNaN(x) ? 0 : x;
+  }
+  function isViewing(cid) {
+    try { return state.route === "cloud" && state.classId === cid; }
+    catch (e) { return window.__sc_state_route === "cloud"; }
+  }
+  function paintBadges() {
+    try {
+      $$("[data-cbadge]").forEach(el => {
+        const n = Cloud.unread[el.dataset.cbadge] || 0;
+        el.textContent = n > 99 ? "99+" : String(n);
+        el.style.display = n > 0 ? "" : "none";
+      });
+    } catch (e) {}
+  }
+  // Pure diff of fetched data vs read markers (no side effects except grades map).
+  function diffClassNews(cid, posts, assigns, mySubs, meUid) {
+    const store = readStore();
+    const r = store[cid] || (store[cid] = { p: 0, a: 0, fb: 0, g: {}, init: false });
+    let nP = 0, nA = 0, nG = 0, nF = 0, pMax = r.p, aMax = r.a, fbMax = r.fb;
+    const myMails = viewerEmails();
+    (posts || []).forEach(p => {
+      const x = tsOf(p.createdAt); if (x > pMax) pMax = x;
+      if (r.init && x > r.p && p.authorUid !== meUid) nP++;
+    });
+    (assigns || []).forEach(a => {
+      const x = tsOf(a.createdAt); if (x > aMax) aMax = x;
+      if (r.init && x > r.a && a.createdBy !== meUid) nA++;
+      let g = null;
+      const gm = a.grades || {};
+      for (const em of myMails) {
+        if (gm[em] !== undefined && gm[em] !== null && gm[em] !== "") { g = Number(gm[em]); break; }
+      }
+      if (!r.g) r.g = {};
+      if (r.init && g !== null && r.g[a.id] !== g) nG++;
+      r.g[a.id] = g;
+    });
+    (mySubs || []).forEach(s => {
+      if (!s.feedback) return;
+      const x = tsOf(s.fdate || s.date); if (x > fbMax) fbMax = x;
+      if (r.init && x > r.fb) nF++;
+    });
+    return { nP, nA, nG, nF, pMax, aMax, fbMax };
+  }
+  function dueCheckCloud(c, assigns) {
+    try {
+      if (typeof Notification === "undefined" || !Cloud.user) return;
+      if (Notification.permission === "denied") return;
+      const now = Date.now(), day = new Date().toDateString();
+      let seen = {};
+      try { seen = JSON.parse(localStorage.getItem("sc_notified_v1") || "{}"); } catch (e) {}
+      let changed = false;
+      (assigns || []).forEach(a => {
+        if ((a.doneBy || []).includes(Cloud.user.uid)) return;
+        if (!a.due) return;
+        const d = new Date(a.due); if (isNaN(d)) return;
+        const ms = d - now;
+        if (ms < 0 || ms > 24 * 3600 * 1000) return;
+        const key = "cc:" + a.id;
+        if (seen[key] === day) return;
+        seen[key] = day; changed = true;
+        try { new Notification("⏰ " + a.title, { body: t("dueSoon") + " · " + c.name }); } catch (e) {}
+      });
+      if (changed) { try { localStorage.setItem("sc_notified_v1", JSON.stringify(seen)); } catch (e) {} }
+    } catch (e) {}
+  }
+  // Background poll: silent baseline on first run, badges + one toast afterwards.
+  Cloud.pollNew = async function () {
+    if (!Cloud.configured || !Cloud.user || !Cloud.db) return;
+    const me = Cloud.user.uid;
+    const hits = [];
+    for (const c of Cloud.cloudClasses.filter(x => !x.archived)) {
+      try {
+        const [ps, as] = await Promise.all([
+          Cloud.db.collection("classes").doc(c.id).collection("posts").orderBy("createdAt", "desc").limit(8).get(),
+          Cloud.db.collection("classes").doc(c.id).collection("assignments").orderBy("createdAt", "desc").limit(8).get()
+        ]);
+        const posts = []; ps.forEach(d => posts.push({ id: d.id, ...d.data() }));
+        const assigns = []; as.forEach(d => assigns.push({ id: d.id, ...d.data() }));
+        const mySubs = [];
+        await Promise.all(assigns.slice(0, 8).map(async a => {
+          try {
+            const s = await Cloud.db.collection("classes").doc(c.id).collection("assignments").doc(a.id).collection("submissions").doc(me).get();
+            if (s.exists) mySubs.push({ id: s.id, ...s.data() });
+          } catch (e) {}
+        }));
+        const store = readStore();
+        const r = store[c.id] || (store[c.id] = { p: 0, a: 0, fb: 0, g: {}, init: false });
+        const diff = diffClassNews(c.id, posts, assigns, mySubs, me);
+        const n = diff.nP + diff.nA + diff.nG + diff.nF;
+        if (!r.init) { r.init = true; }
+        else if (n > 0 && !isViewing(c.id)) {
+          Cloud.unread[c.id] = (Cloud.unread[c.id] || 0) + n;
+          hits.push({ name: c.name, n });
+        } else if (isViewing(c.id)) { Cloud.unread[c.id] = 0; }
+        r.p = diff.pMax; r.a = diff.aMax; r.fb = diff.fbMax;
+        dueCheckCloud(c, assigns);
+      } catch (e) {}
+    }
+    saveRead(); paintBadges();
+    if (hits.length) {
+      const shown = hits.slice(0, 3).map(x => `${x.name} (+${x.n})`).join(", ");
+      toast(`🔔 ${t("newActivity")}: ${shown}${hits.length > 3 ? "…" : ""}`, true);
+    }
+  };
+  // Scan of the OPEN class from live snapshots: silent, clears badges while viewing.
+  Cloud.scanOpen = function () {
+    const d = Cloud.detail;
+    if (!d || !d.cls || !Cloud.user || !isViewing(d.cls.id)) return;
+    const cid = d.cls.id, me = Cloud.user.uid;
+    const mySubs = [];
+    Object.values(Cloud.subs || {}).forEach(arr => (arr || []).forEach(s => { if (s.id === me) mySubs.push(s); }));
+    const diff = diffClassNews(cid, d.posts, d.assignments, mySubs, me);
+    const store = readStore();
+    const r = store[cid];
+    if (!r.init) r.init = true;
+    r.p = diff.pMax; r.a = diff.aMax; r.fb = diff.fbMax;
+    Cloud.unread[cid] = 0;
+    saveRead(); paintBadges();
+  };
 
   /* ---------- auth ---------- */
   function authError(msg) {
@@ -262,6 +402,7 @@
     window.__sc_state_route = "cloud";
     Cloud.ui.tab = "stream";
     Cloud.expanded = {}; Cloud.cCache = {}; Cloud.subs = {}; Cloud.subsReady = null; Cloud.subsFetching = false;
+    Cloud.unread[id] = 0; paintBadges();
     subscribeDetail(id);
     try { render(); } catch (e) {}
   };
@@ -289,11 +430,13 @@
     Cloud._detailUnsubs.push(doc.collection("posts").orderBy("createdAt", "desc").limit(60).onSnapshot(s => {
       const p = []; s.forEach(d => p.push({ id: d.id, ...d.data() }));
       Cloud.detail = { ...(Cloud.detail || {}), posts: p };
+      try { Cloud.scanOpen(); } catch (e) {}
       if (window.__sc_state_route === "cloud") { try { render(); } catch (e) {} }
     }));
     Cloud._detailUnsubs.push(doc.collection("assignments").orderBy("createdAt", "desc").limit(100).onSnapshot(s => {
       const a = []; s.forEach(d => a.push({ id: d.id, ...d.data() }));
       Cloud.detail = { ...(Cloud.detail || {}), assignments: a };
+      try { Cloud.scanOpen(); } catch (e) {}
       if (window.__sc_state_route === "cloud") { try { render(); } catch (e) {} }
     }));
   }
@@ -388,6 +531,7 @@
       } catch (e) { Cloud.subs[aid] = []; }
     }));
     Cloud.subsReady = clsId;
+    try { Cloud.scanOpen(); } catch (e) {}
     try { render(); } catch (e) {}
   }
   function ccClassAverage(assigns) {
@@ -476,7 +620,7 @@
         ? `<div class="grid" style="margin-bottom:18px">${list.map(c => `
           <div class="class-card" data-cloud-open="${c.id}">
             <div class="class-banner" style="${bannerStyle(c.color)}"><h3>${esc(c.name)}</h3><small>${esc([c.subject, c.section].filter(Boolean).join(" · ")) || "&nbsp;"}</small></div>
-            <div class="class-body"><p>☁ ${esc(c.code)} · ${esc(c.teacherName || "")}</p><span class="muted">›</span></div>
+            <div class="class-body"><p>☁ ${esc(c.code)} · ${esc(c.teacherName || "")}</p><span class="cbadge" data-cbadge="${c.id}" style="display:none"></span><span class="muted">›</span></div>
           </div>`).join("")}</div>`
         : `<div class="empty" style="margin-bottom:18px">${t("noClassesSub")}</div>`) +
       `<div class="page-head"><div><h1 style="font-size:19px">💻 ${t("thisDevice")}</h1></div></div>`;
@@ -792,7 +936,7 @@
   Cloud.sideHTML = function () {
     if (!Cloud.configured || !Cloud.user || !Cloud.cloudClasses.length) return "";
     return Cloud.cloudClasses.filter(c => !c.archived).slice(0, 10).map(c =>
-      `<button class="side-class-item" data-cloud-open="${c.id}"><span class="dot" style="${bannerStyle(c.color)}"></span><span>☁ ${esc(c.name)}</span></button>`
+      `<button class="side-class-item" data-cloud-open="${c.id}"><span class="dot" style="${bannerStyle(c.color)}"></span><span>☁ ${esc(c.name)}</span><span class="cbadge" data-cbadge="${c.id}" style="display:none"></span></button>`
     ).join("");
   };
 
