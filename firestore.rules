@@ -7,6 +7,14 @@ rules_version = '2';
 // Members can post and manage homework; done-status is per user.
 
 service cloud.firestore {
+  // Owner has everything; other members only the perms granted on the class doc:
+  // perms = { uid: ["announce","homework","grades","panel"] }
+  function hasPerm(classId, perm) {
+    let c = get(/databases/$(database)/documents/classes/$(classId)).data;
+    return c.ownerUid == request.auth.uid
+      || (('perms' in c) && (request.auth.uid in c.perms) && (perm in c.perms[request.auth.uid]));
+  }
+
   match /databases/{database}/documents {
 
     match /classes/{classId} {
@@ -32,10 +40,12 @@ service cloud.firestore {
 
       match /posts/{postId} {
         allow read: if request.auth != null;
-        allow create: if request.auth != null
-          && (get(/databases/$(database)/documents/classes/$(classId)).data.ownerUid == request.auth.uid
-              || exists(/databases/$(database)/documents/classes/$(classId)/members/$(request.auth.uid)));
-        allow update, delete: if request.auth != null
+        // Announcements: owner or members with the "announce" permission.
+        allow create: if request.auth != null && hasPerm(classId, 'announce');
+        // Pinning is announcement management: author, owner or announce-permission.
+        allow update: if request.auth != null
+          && (resource.data.authorUid == request.auth.uid || hasPerm(classId, 'announce'));
+        allow delete: if request.auth != null
           && (resource.data.authorUid == request.auth.uid
               || get(/databases/$(database)/documents/classes/$(classId)).data.ownerUid == request.auth.uid);
 
@@ -53,14 +63,14 @@ service cloud.firestore {
 
       match /assignments/{assignId} {
         allow read: if request.auth != null;
-        allow create: if request.auth != null
-          && get(/databases/$(database)/documents/classes/$(classId)).data.ownerUid == request.auth.uid;
-        // Toggling done-status touches only doneBy; owners have full access.
+        // Homework: owner or members with the "homework" permission.
+        allow create: if request.auth != null && hasPerm(classId, 'homework');
+        // Done-toggles touch only doneBy; grades need the "grades" permission; owners: everything.
         allow update: if request.auth != null
           && (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['doneBy'])
-              || get(/databases/$(database)/documents/classes/$(classId)).data.ownerUid == request.auth.uid);
+              || hasPerm(classId, 'grades'));
         allow delete: if request.auth != null
-          && get(/databases/$(database)/documents/classes/$(classId)).data.ownerUid == request.auth.uid;
+          && hasPerm(classId, 'homework');
 
         // Comment threads on homework: same access as post comments.
         match /comments/{commentId} {
@@ -71,6 +81,18 @@ service cloud.firestore {
           allow delete: if request.auth != null
             && (resource.data.authorUid == request.auth.uid
                 || get(/databases/$(database)/documents/classes/$(classId)).data.ownerUid == request.auth.uid);
+        }
+
+        // Submissions: each student writes their own doc (id = uid);
+        // feedback is written by owner / grades-permission holders.
+        match /submissions/{subId} {
+          allow read: if request.auth != null;
+          allow create: if request.auth != null && subId == request.auth.uid
+            && exists(/databases/$(database)/documents/classes/$(classId)/members/$(request.auth.uid));
+          allow update: if request.auth != null
+            && (subId == request.auth.uid || hasPerm(classId, 'grades'));
+          allow delete: if request.auth != null
+            && get(/databases/$(database)/documents/classes/$(classId)).data.ownerUid == request.auth.uid;
         }
       }
     }

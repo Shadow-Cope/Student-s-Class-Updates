@@ -67,12 +67,51 @@ classes.forEach(c => { if (!c.ownerEmail) c.ownerEmail = (c.teacher && c.teacher
   if (classes.length !== before) save(LS_CLASSES, classes);
 })();
 
-/* Permissions: only the class owner (creator) can post/manage. Everyone else is a student there. */
+/* Permissions: the class owner has everything; other members only what the owner grants.
+   Local perms: { normalizedEmail: ["announce","homework","grades","panel"] } */
+const PERMS = ["announce", "homework", "grades", "panel"];
+const PERM_KEYS = { announce: "permAnnounce", homework: "permHomework", grades: "permGrades", panel: "permPanel" };
 function isOwner(c) {
   if (!profile || !c) return false;
   const mine = (profile.email || "").trim().toLowerCase();
   const owner = ((c.ownerEmail || (c.teacher && c.teacher.email)) || "").trim().toLowerCase();
   return !!mine && !!owner && mine === owner;
+}
+function myPerms(c) {
+  if (isOwner(c)) return [...PERMS];
+  if (!c || !profile) return [];
+  return ((c.perms || {})[normEmail(profile.email)] || []).filter(p => PERMS.includes(p));
+}
+function canDo(c, perm) { return isOwner(c) || myPerms(c).includes(perm); }
+function openPermsModal(classId, email) {
+  const c = getClass(classId);
+  if (!isOwner(c)) { toast(t("onlyOwner")); return; }
+  const key = normEmail(email);
+  const cur = ((c.perms || {})[key] || []);
+  openModal(`<h2>${t("perms")}</h2><p class="muted">${esc(email)}<br>${t("permsSub")}</p>
+    ${PERMS.map(p => `<label class="checkline"><input type="checkbox" data-perm-cb="${p}" ${cur.includes(p) ? "checked" : ""} /> ${t(PERM_KEYS[p])}</label>`).join("")}
+    <div class="btn-row" style="margin-top:14px"><button class="btn primary" id="doPerms">${t("saveBtn")}</button><button class="btn" id="cancelModal">${t("cancelBtn")}</button></div>`);
+  $("#doPerms").onclick = () => {
+    const picked = PERMS.filter(p => document.querySelector(`[data-perm-cb="${p}"]`)?.checked);
+    if (!c.perms) c.perms = {};
+    if (picked.length) c.perms[key] = picked; else delete c.perms[key];
+    save(LS_CLASSES, classes); closeModal(); render(); toast(t("permsSaved"), true);
+  };
+}
+/* Linkify + external-link warning (links are never verified by the app) */
+function fmtRich(text) {
+  const safe = esc(text || "");
+  return safe.replace(/(https?:\/\/[^\s<]+|www\.[^\s<]+)/g, (u) => {
+    const href = /^https?:\/\//i.test(u) ? u : "https://" + u;
+    const disp = u.length > 48 ? u.slice(0, 47) + "…" : u;
+    return `<a href="#" class="ext-link" data-url="${esc(href)}">${esc(disp)}</a>`;
+  });
+}
+function openLinkWarning(url) {
+  openModal(`<h2>⚠ ${t("linkWarnTitle")}</h2><p>${t("linkWarnMsg")}</p>
+    <p class="muted" style="word-break:break-all">${esc(url)}</p>
+    <div class="btn-row" style="margin-top:14px"><button class="btn primary" id="visitLink">${t("visitLink")}</button><button class="btn" id="cancelModal">${t("cancelBtn")}</button></div>`);
+  $("#visitLink").onclick = () => { closeModal(); try { window.open(url, "_blank", "noopener"); } catch (e) {} };
 }
 
 /* ================= Fun feedback: toasts + burst particles ================= */
@@ -177,7 +216,7 @@ function commentsHTML(items, kind, id) {
   const list = items || [];
   return `<div class="comments" id="comments-${kind}-${id}">`
     + (list.length
-      ? list.map(cm => `<div class="comment">${avatarHTML({ firstName: cm.authorName?.[0] || "?", lastName: "", pfp: cm.authorPfp || null }, "mini-avatar sm")}<div class="comment-body"><strong>${esc(cm.authorName || "?")}</strong><span class="muted"> · ${esc(new Date(cm.date).toLocaleString(locale()))}</span><p>${esc(cm.text)}</p></div></div>`).join("")
+      ? list.map(cm => `<div class="comment">${avatarHTML({ firstName: cm.authorName?.[0] || "?", lastName: "", pfp: cm.authorPfp || null }, "mini-avatar sm")}<div class="comment-body"><strong>${esc(cm.authorName || "?")}</strong><span class="muted"> · ${esc(new Date(cm.date).toLocaleString(locale()))}</span><p>${fmtRich(cm.text)}</p></div></div>`).join("")
       : `<p class="muted" style="font-size:12.5px;margin:6px 0">${t("noComments")}</p>`)
     + `<div class="cinput-row"><input type="text" data-cinput="${kind}:${id}" placeholder="${esc(t("commentPh"))}" maxlength="500" /><button class="btn small" data-sendcomment="${kind}:${id}">${t("commentBtn")}</button></div></div>`;
 }
@@ -354,7 +393,7 @@ function seedDemo() {
 /* ---------- Posts & homework (owner only) ---------- */
 function openPostModal(classId) {
   const c = getClass(classId);
-  if (!isOwner(c)) { toast(t("onlyOwner")); return; }
+  if (!canDo(c, "announce")) { toast(t("onlyOwner")); return; }
   openModal(`<h2>${t("newAnnounce")}</h2><p class="muted">${t("announceSub")}</p>
     <label>${t("messageLbl")}</label><textarea id="pText"></textarea>
     <div class="btn-row" style="margin-top:14px"><button class="btn primary" id="doPost">${t("postBtn")}</button><button class="btn" id="cancelModal">${t("cancelBtn")}</button></div>`);
@@ -367,7 +406,7 @@ function openPostModal(classId) {
 
 function openAssignModal(classId, presetDue = "") {
   const c = getClass(classId);
-  if (!isOwner(c)) { toast(t("onlyOwner")); return; }
+  if (!canDo(c, "homework")) { toast(t("onlyOwner")); return; }
   openModal(`<h2>${t("newHw")}</h2><p class="muted">${t("hwSub")}</p>
     <label>${t("titleLbl")}</label><input id="aTitle" type="text" />
     <label>${t("instrLbl")}</label><textarea id="aDesc"></textarea>
@@ -390,7 +429,7 @@ function openAssignModal(classId, presetDue = "") {
 /* ---------- Grades (owner only) ---------- */
 function openGradeModal(classId, assignId) {
   const c = getClass(classId);
-  if (!isOwner(c)) { toast(t("onlyOwner")); return; }
+  if (!canDo(c, "grades")) { toast(t("onlyOwner")); return; }
   const a = c.assignments.find(x => x.id === assignId);
   if (!a) return;
   if (!a.grades) a.grades = {};
@@ -416,6 +455,60 @@ function openGradeModal(classId, assignId) {
     });
     save(LS_CLASSES, classes); closeModal(); render(); toast(t("gradesSaved"), true);
   };
+}
+
+/* Stats of one assignment: submissions + graded average */
+function assignStats(a) {
+  const subs = a.subs || {};
+  const keys = Object.keys(subs);
+  const vals = Object.values(a.grades || {}).map(Number).filter(v => !isNaN(v));
+  return { sub: keys.length, gn: vals.length, avg: vals.length ? vals.reduce((s, v) => s + v, 0) / vals.length : 0 };
+}
+/* Whole-class average across every graded entry (0-10 scale) */
+function classAverage(c) {
+  let sum = 0, n = 0;
+  (c.assignments || []).forEach(a => {
+    if (!(a.points > 0)) return;
+    Object.values(a.grades || {}).forEach(g => {
+      const v = Number(g);
+      if (!isNaN(v)) { sum += (v / a.points) * 10; n++; }
+    });
+  });
+  return n ? { avg: sum / n, n } : null;
+}
+/* Student submission box for one assignment */
+function submitBoxHTML(a, meEmail) {
+  const sub = (a.subs || {})[meEmail];
+  const prev = sub ? `<div class="sub-prev"><strong>${t("yourSubmission")}</strong><span class="muted"> · ${esc(new Date(sub.date).toLocaleString(locale()))}</span><p>${fmtRich(sub.text)}</p>${sub.feedback ? `<div class="feedback"><strong>${t("feedback")}:</strong> ${fmtRich(sub.feedback)}</div>` : ""}</div>` : "";
+  return `<div class="sub-box">${prev}<div class="cinput-row"><input type="text" data-subinput="${a.id}" placeholder="${esc(t("submitPh"))}" maxlength="1000" /><button class="btn small primary" data-subsend="${a.id}">${sub ? t("saveBtn") : t("submit")}</button></div></div>`;
+}
+/* Teacher panel: stats + per-assignment submission review with feedback */
+function panelHTML(c, canP) {
+  if (!canP) return `<div class="empty">${t("onlyOwner")}</div>`;
+  const avg = classAverage(c);
+  let totalSubs = 0;
+  (c.assignments || []).forEach(a => { totalSubs += Object.keys(a.subs || {}).length; });
+  return `<div class="card stat-row">
+      <div class="stat"><strong>${c.members.length}</strong><span>${t("membersTitle").toLowerCase()}</span></div>
+      <div class="stat"><strong>${(c.assignments || []).length}</strong><span>${t("tasks").toLowerCase()}</span></div>
+      <div class="stat"><strong>${totalSubs}</strong><span>${t("submissions").toLowerCase()}</span></div>
+      <div class="stat"><strong>${avg ? "★ " + avg.avg.toFixed(1) : "–"}</strong><span>${t("classAverage").toLowerCase()}</span></div>
+    </div>`
+    + ((c.assignments || []).length ? c.assignments.map(a => {
+      const st = assignStats(a);
+      const subs = a.subs || {};
+      const keys = Object.keys(subs);
+      return `<div class="card" style="margin-top:12px"><h3>${esc(a.title)}</h3>
+        <p class="muted" style="margin:0 0 8px">📥 ${st.sub} ${t("submissions").toLowerCase()}${st.gn ? ` · ★ ${st.avg.toFixed(1)}/${a.points}` : ""}</p>
+        ${keys.length ? keys.map(em => {
+          const s = subs[em];
+          const m = memberByEmail(c, em) || { firstName: em.split("@")[0], lastName: "" };
+          const g = (a.grades || {})[em];
+          return `<div class="person-row" style="align-items:flex-start">${avatarHTML(m)}<div style="flex:1"><strong>${esc((m.firstName || "") + " " + (m.lastName || ""))}</strong><div class="muted" style="font-size:12px">${esc(new Date(s.date).toLocaleString(locale()))}${g !== undefined ? ` · ★ ${g}/${a.points}` : ""}</div><p style="margin:4px 0">${fmtRich(s.text)}</p>
+            <div class="cinput-row"><input type="text" data-fbinput="${a.id}:${esc(em)}" placeholder="${t("feedback")}…" value="${esc(s.feedback || "")}" maxlength="1000" /><button class="btn small" data-fbsend="${a.id}:${esc(em)}">${t("saveBtn")}</button></div></div></div>`;
+        }).join("") : `<p class="muted">${t("noSubmissions")}</p>`}
+      </div>`;
+    }).join("") : `<div class="empty" style="margin-top:12px">${t("noHw")}</div>`);
 }
 
 /* ---------- Rendering ---------- */
@@ -578,6 +671,8 @@ function viewClass() {
   if (!c) { state.route = "home"; return viewHome(); }
   const tab = state.tab;
   const owner = isOwner(c);
+  const canA = canDo(c, "announce"), canH = canDo(c, "homework"), canG = canDo(c, "grades"), canP = canDo(c, "panel");
+  const me = normEmail(profile && profile.email);
   let body = "";
   if (tab === "stream") {
     body = `<div class="two-col">
@@ -588,36 +683,46 @@ function viewClass() {
         <h3>${t("aboutTitle")}</h3><p class="muted">${esc(c.description || t("noDesc"))}</p>
         <p class="muted">${esc(c.room || "-")} · ${c.members.length} ${t("membersWord")}</p></div>
       <div>
-        ${owner ? `<div class="btn-row" style="margin-bottom:12px"><button class="btn primary" id="newPost">${t("newAnnounceBtn")}</button><button class="btn" id="newAssign">${t("newHwBtn")}</button></div>` : `<p class="muted" style="margin:0 0 12px">${t("onlyOwner")}</p>`}
+        ${(canA || canH) ? `<div class="btn-row" style="margin-bottom:12px">${canA ? `<button class="btn primary" id="newPost">${t("newAnnounceBtn")}</button>` : ""}${canH ? `<button class="btn" id="newAssign">${t("newHwBtn")}</button>` : ""}</div>` : `<p class="muted" style="margin:0 0 12px">${t("onlyOwner")}</p>`}
         ${c.posts.length ? sortedPosts(c).map(p => {
           const author = memberByEmail(c, p.authorEmail) || { firstName: p.authorName?.[0] || "?", lastName: "", pfp: p.authorPfp || null };
           const hw = p.kind === "hw";
-          return `<div class="post${p.pinned ? " pinned" : ""}"><div class="post-head">${avatarHTML(author)}<div><strong>${esc(p.authorName)}</strong><div class="muted" style="font-size:12px">${esc(new Date(p.date).toLocaleString(locale()))}</div></div>${p.pinned ? `<span class="hw-badge">📌 ${t("pinBadge")}</span>` : ""}${hw ? `<span class="hw-badge">✏ ${t("hwBadge")}</span>` : ""}${owner ? `<button class="icon-btn sm pin-btn" data-pin="${p.id}" title="${p.pinned ? t("unpin") : t("pin")}">${p.pinned ? "📌" : "📍"}</button>` : ""}</div>${hw ? `<p style="margin:6px 0 2px"><strong>${esc(p.hwTitle || "")}</strong></p><p class="muted" style="margin:0 0 4px;font-size:13px">${p.hwDue ? esc(new Date(p.hwDue).toLocaleString(locale())) : esc(t("noDueDate"))}</p>` : ""}<p style="margin:6px 0 0">${esc(p.text)}</p>${commentsHTML(p.comments, "p", p.id)}</div>`;
+          return `<div class="post${p.pinned ? " pinned" : ""}"><div class="post-head">${avatarHTML(author)}<div><strong>${esc(p.authorName)}</strong><div class="muted" style="font-size:12px">${esc(new Date(p.date).toLocaleString(locale()))}</div></div>${p.pinned ? `<span class="hw-badge">📌 ${t("pinBadge")}</span>` : ""}${hw ? `<span class="hw-badge">✏ ${t("hwBadge")}</span>` : ""}${canA ? `<button class="icon-btn sm pin-btn" data-pin="${p.id}" title="${p.pinned ? t("unpin") : t("pin")}">${p.pinned ? "📌" : "📍"}</button>` : ""}</div>${hw ? `<p style="margin:6px 0 2px"><strong>${esc(p.hwTitle || "")}</strong></p><p class="muted" style="margin:0 0 4px;font-size:13px">${p.hwDue ? esc(new Date(p.hwDue).toLocaleString(locale())) : esc(t("noDueDate"))}</p>` : ""}<p style="margin:6px 0 0">${fmtRich(p.text)}</p>${commentsHTML(p.comments, "p", p.id)}</div>`;
         }).join("") : `<div class="empty">${t("noAnnounce")}</div>`}
       </div></div>`;
   } else if (tab === "classwork") {
     const avg = myAverage(c);
-    body = `${owner ? `<div class="btn-row" style="margin-bottom:12px"><button class="btn primary" id="newAssign">${t("newHwBtn")}</button></div>` : `<p class="muted" style="margin:0 0 12px">${t("onlyOwner")}</p>`}
+    body = `${canH ? `<div class="btn-row" style="margin-bottom:12px"><button class="btn primary" id="newAssign">${t("newHwBtn")}</button></div>` : `<p class="muted" style="margin:0 0 12px">${t("onlyOwner")}</p>`}
     ${avg ? `<div class="card avg-card"><strong>★ ${t("yourAverage")}: ${avg.avg.toFixed(1)}</strong><span class="muted"> · ${avg.n} ${t("grades").toLowerCase()}</span></div>` : ""}
     ${c.assignments.length ? c.assignments.map(a => {
       const g = myGrade(a);
+      const st = assignStats(a);
       return `<div class="assign ${a.done ? "done" : ""}">
       <div class="assign-head"><div style="flex:1"><strong>${esc(a.title)}</strong><div class="muted" style="font-size:13px">${esc(fmtDue(a))} · ${a.points} ${t("pts")}</div></div>
       ${g !== null ? `<span class="grade-chip">★ ${g}/${a.points}</span>` : (a.points > 0 ? `<span class="grade-chip dim">${t("notGraded")}</span>` : "")}
       <button class="btn small" data-toggle="${a.id}">${a.done ? t("reopenBtn") : t("markDone")}</button>
-      ${owner ? `<button class="btn small" data-grade="${a.id}">${t("setGrades")}</button><button class="btn small danger" data-delassign="${a.id}">${t("deleteBtn")}</button>` : ""}</div>
-      ${a.desc ? `<p style="margin:6px 0 0">${esc(a.desc)}</p>` : ""}${commentsHTML(a.comments, "a", a.id)}</div>`;
+      ${canG ? `<button class="btn small" data-grade="${a.id}">${t("setGrades")}</button>` : ""}${canH ? `<button class="btn small danger" data-delassign="${a.id}">${t("deleteBtn")}</button>` : ""}</div>
+      ${a.desc ? `<p style="margin:6px 0 0">${fmtRich(a.desc)}</p>` : ""}
+      ${canG ? `<p class="muted" style="font-size:12.5px;margin:6px 0 0">📥 ${st.sub} ${t("submissions").toLowerCase()}${st.gn ? ` · ★ ${st.avg.toFixed(1)}/${a.points}` : ""}</p>` : submitBoxHTML(a, me)}
+      ${commentsHTML(a.comments, "a", a.id)}</div>`;
     }).join("") : `<div class="empty">${t("noHw")}</div>`}`;
+  } else if (tab === "panel") {
+    body = panelHTML(c, canP);
   } else {
+    const ownerMail = normEmail(c.ownerEmail || (c.teacher && c.teacher.email));
     body = `<div class="card"><h3>${t("teacherWord")}</h3><div class="person-row">${avatarHTML(c.teacher)}<div><strong>${esc(c.teacher?.firstName + " " + c.teacher?.lastName)}</strong><div class="muted">${esc(c.teacher?.email || "")}</div></div></div>
       <h3 style="margin-top:16px">${t("membersTitle")} (${c.members.length})</h3>
-      ${c.members.map(m => `<div class="person-row">${avatarHTML(m)}<div><strong>${esc(m.firstName)} ${esc(m.lastName)}</strong><div class="muted">${esc(m.email)} · ${m.role === "teacher" ? t("teacherRole") : t("studentRole")}</div></div></div>`).join("")}
+      ${c.members.map(m => {
+        const mp = ((c.perms || {})[normEmail(m.email)] || []).map(p => t(PERM_KEYS[p])).filter(Boolean);
+        const isSelf = normEmail(m.email) === ownerMail;
+        return `<div class="person-row">${avatarHTML(m)}<div style="flex:1"><strong>${esc(m.firstName)} ${esc(m.lastName)}</strong><div class="muted">${esc(m.email)} · ${m.role === "teacher" ? t("teacherRole") : t("studentRole")}${mp.length ? ` · 🔑 ${esc(mp.join(", "))}` : ""}</div></div>${owner && !isSelf ? `<button class="btn small" data-perms="${esc(m.email)}">${t("perms")}</button>` : ""}</div>`;
+      }).join("")}
       ${owner ? `<div class="btn-row" style="margin-top:12px"><button class="btn small" id="addMember">${t("addMemberBtn")}</button></div>` : ""}</div>`;
   }
   return `<button class="btn small" id="backHome">‹ ${t("backAll")}</button>
   <div class="banner-hero" style="${bannerStyle(c.color)};margin-top:12px"><h1>${esc(c.name)}</h1><p>${esc([c.subject, c.section, c.room].filter(Boolean).join(" · "))}</p>
     <div class="class-meta"><span class="chip">${esc(c.code)}</span><span class="chip">${c.members.length} ${t("membersWord")}</span><span class="chip">${c.assignments.filter(a => !a.done).length} ${t("pendingWord")}</span></div></div>
-  <div class="tabs"><button class="tab ${tab === "stream" ? "active" : ""}" data-tab="stream">${t("tabStream")}</button><button class="tab ${tab === "classwork" ? "active" : ""}" data-tab="classwork">${t("tabClasswork")}</button><button class="tab ${tab === "people" ? "active" : ""}" data-tab="people">${t("tabPeople")}</button></div>
+  <div class="tabs"><button class="tab ${tab === "stream" ? "active" : ""}" data-tab="stream">${t("tabStream")}</button><button class="tab ${tab === "classwork" ? "active" : ""}" data-tab="classwork">${t("tabClasswork")}</button><button class="tab ${tab === "people" ? "active" : ""}" data-tab="people">${t("tabPeople")}</button>${canP ? `<button class="tab ${tab === "panel" ? "active" : ""}" data-tab="panel">📊 ${t("panel")}</button>` : ""}</div>
   ${body}`;
 }
 
@@ -655,14 +760,14 @@ function bindCommon() {
   });
   $$("[data-delassign]").forEach(b => b.onclick = () => {
     const c = getClass(state.classId);
-    if (!isOwner(c)) { toast(t("onlyOwner")); return; }
+    if (!canDo(c, "homework")) { toast(t("onlyOwner")); return; }
     if (!confirm(t("delConfirm"))) return;
     c.assignments = c.assignments.filter(x => x.id !== b.dataset.delassign);
     save(LS_CLASSES, classes); render();
   });
   $$("[data-pin]").forEach(b => b.onclick = (e) => {
     const c = getClass(state.classId);
-    if (!isOwner(c)) { toast(t("onlyOwner")); return; }
+    if (!canDo(c, "announce")) { toast(t("onlyOwner")); return; }
     const p = c.posts.find(x => x.id === b.dataset.pin);
     if (p) { p.pinned = !p.pinned; save(LS_CLASSES, classes); render(); celebrateEvent(e, 8); toast(p.pinned ? t("pin") : t("unpin"), p.pinned); }
   });
@@ -686,6 +791,38 @@ function bindCommon() {
       const btn = document.querySelector(`[data-sendcomment="${inp.dataset.cinput}"]`);
       btn?.click();
     }
+  });
+  $$(".ext-link").forEach(a => a.onclick = (e) => { e.preventDefault(); openLinkWarning(a.dataset.url || a.textContent); });
+  $$("[data-perms]").forEach(b => b.onclick = () => openPermsModal(state.classId, b.dataset.perms));
+  $$("[data-subsend]").forEach(b => b.onclick = () => {
+    const c = getClass(state.classId);
+    if (!c || !profile) return;
+    const a = c.assignments.find(x => x.id === b.dataset.subsend);
+    if (!a) return;
+    const inp = document.querySelector(`[data-subinput="${a.id}"]`);
+    const text = (inp?.value || "").trim();
+    if (!text) return;
+    if (!a.subs) a.subs = {};
+    const prev = a.subs[normEmail(profile.email)] || {};
+    a.subs[normEmail(profile.email)] = { text, date: new Date().toISOString(), feedback: prev.feedback || "", fdate: prev.fdate || "" };
+    save(LS_CLASSES, classes); render(); celebrateEvent(b, 10); toast(t("submitted"), true);
+  });
+  $$("[data-subinput]").forEach(inp => inp.onkeydown = (e) => {
+    if (e.key === "Enter") {
+      const btn = document.querySelector(`[data-subsend="${inp.dataset.subinput}"]`);
+      btn?.click();
+    }
+  });
+  $$("[data-fbsend]").forEach(b => b.onclick = () => {
+    const c = getClass(state.classId);
+    if (!c || !canDo(c, "grades")) { toast(t("onlyOwner")); return; }
+    const [aid, em] = b.dataset.fbsend.split(":");
+    const a = c.assignments.find(x => x.id === aid);
+    if (!a || !a.subs || !a.subs[em]) return;
+    const inp = document.querySelector(`[data-fbinput="${aid}:${em}"]`);
+    a.subs[em].feedback = (inp?.value || "").trim();
+    a.subs[em].fdate = new Date().toISOString();
+    save(LS_CLASSES, classes); render(); toast(t("gradesSaved"), true);
   });
   $$("[data-done]").forEach(ch => ch.onchange = (e) => {
     const [cid, aid] = ch.dataset.done.split(":");
