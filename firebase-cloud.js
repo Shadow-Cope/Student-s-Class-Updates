@@ -7,11 +7,11 @@
 
   /* ---------- extra translations (merged into app i18n) ---------- */
   const EXTRA = {
-    en: { cloud: "Cloud", onlineClasses: "Online classes", thisDevice: "On this device", cloudOff: "Cloud sync is off. Add your Firebase keys to enable it.", signInToSync: "Sign in to sync classes across devices.", signIn: "Sign in", createAccount: "Create account", guestBtn: "Continue as guest", emailAddr: "Email", passwd: "Password", logoutBtn: "Log out", needAuth: "Sign in first.", onlineLabel: "Online class (syncs across devices)", cloudAcc: "Cloud account", signedInCloud: "Signed in", cloudCreated: "Online class created. Code: ", cloudJoined: "Joined online class ", noNet: "No connection to the cloud.", delClass: "Delete class", delClassConfirm: "Delete this online class for everyone?", classDeleted: "Online class deleted", announceHw: "Also post to announcements", hwBadge: "Homework", authTitle: "Welcome back", authSub: "Sign in to sync your classes on every device.", orWord: "or", authNote: "Your classes stay private to your account. We never sell your data.", legal: "Legal", legalSub: "Terms, privacy and cookies.", termsBtn: "Terms & conditions", privBtn: "Privacy policy", cookieBtn: "Cookie policy", closeBtn: "Close", updates: "Updates", updatesSub: "The app updates itself. Updates are required to keep using it.", checkUpdates: "Check for updates", checkingUpdates: "Checking for updates…", upToDate: "You're up to date", downloadingUpdate: "Downloading required update…", updateError: "Couldn't check for updates", tabStream: "Stream", tabClasswork: "Classwork", tabPeople: "People", emailWord: "Email", bioWord: "Bio", statusWord: "Status", guestWord: "Guest" },
-    es: { cloud: "Nube", onlineClasses: "Clases en línea", thisDevice: "En este dispositivo", cloudOff: "La nube está desactivada. Añade tus claves de Firebase.", signInToSync: "Inicia sesión para sincronizar tus clases.", signIn: "Iniciar sesión", createAccount: "Crear cuenta", guestBtn: "Entrar como invitado", emailAddr: "Correo", passwd: "Contraseña", logoutBtn: "Cerrar sesión", needAuth: "Inicia sesión primero.", onlineLabel: "Clase en línea (se sincroniza)", cloudAcc: "Cuenta en la nube", signedInCloud: "Sesión iniciada", cloudCreated: "Clase en línea creada. Código: ", cloudJoined: "Te uniste a ", noNet: "Sin conexión con la nube.", delClass: "Eliminar clase", delClassConfirm: "¿Eliminar esta clase en línea para todos?", classDeleted: "Clase en línea eliminada", announceHw: "Publicar también en anuncios", hwBadge: "Tarea", authTitle: "Bienvenido de nuevo", authSub: "Inicia sesión para sincronizar tus clases en todos los dispositivos.", orWord: "o", authNote: "Tus clases son privadas. Nunca vendemos tus datos.", legal: "Legal", legalSub: "Términos, privacidad y cookies.", termsBtn: "Términos y condiciones", privBtn: "Política de privacidad", cookieBtn: "Política de cookies", closeBtn: "Cerrar", updates: "Actualizaciones", updatesSub: "La app se actualiza sola. Las actualizaciones son obligatorias para seguir usándola.", checkUpdates: "Buscar actualizaciones", checkingUpdates: "Buscando actualizaciones…", upToDate: "Tienes la última versión", downloadingUpdate: "Descargando actualización obligatoria…", updateError: "No se pudieron buscar actualizaciones", tabStream: "Tablón", tabClasswork: "Trabajo", tabPeople: "Personas", emailWord: "Correo", bioWord: "Biografía", statusWord: "Estado", guestWord: "Invitado" },
-    pt: { cloud: "Nuvem", onlineClasses: "Turmas online", thisDevice: "Neste dispositivo", cloudOff: "Sincronização desligada. Adiciona as chaves do Firebase.", signInToSync: "Inicia sessão para sincronizar.", signIn: "Iniciar sessão", createAccount: "Criar conta", guestBtn: "Entrar como convidado", emailAddr: "Email", passwd: "Palavra-passe", logoutBtn: "Terminar sessão", needAuth: "Inicia sessão primeiro.", onlineLabel: "Turma online (sincroniza)", cloudAcc: "Conta na nuvem", signedInCloud: "Sessão iniciada", cloudCreated: "Turma online criada. Código: ", cloudJoined: "Entraste em ", noNet: "Sem ligação à nuvem.", delClass: "Eliminar turma", delClassConfirm: "Eliminar esta turma online para todos?", classDeleted: "Turma online eliminada", announceHw: "Publicar também nos anúncios", hwBadge: "Trabalho", authTitle: "Bem-vindo de volta", authSub: "Inicia sessão para sincronizar as tuas turmas.", orWord: "ou", authNote: "As tuas turmas são privadas. Nunca vendemos os teus dados.", legal: "Legal", legalSub: "Termos, privacidade e cookies.", termsBtn: "Termos e condições", privBtn: "Política de privacidade", cookieBtn: "Política de cookies", closeBtn: "Fechar", updates: "Atualizações", updatesSub: "A app atualiza-se sozinha. As atualizações são obrigatórias.", checkUpdates: "Procurar atualizações", checkingUpdates: "A procurar atualizações…", upToDate: "Tens a versão mais recente", downloadingUpdate: "A descarregar atualização obrigatória…", updateError: "Não foi possível procurar atualizações", tabStream: "Mural", tabClasswork: "Trabalhos", tabPeople: "Pessoas", emailWord: "Email", bioWord: "Bio", statusWord: "Estado", guestWord: "Convidado" },
-    fr: { cloud: "Cloud", onlineClasses: "Cours en ligne", thisDevice: "Sur cet appareil", cloudOff: "Sync désactivée. Ajoutez vos clés Firebase.", signInToSync: "Connectez-vous pour synchroniser.", signIn: "Se connecter", createAccount: "Créer un compte", guestBtn: "Continuer en invité", emailAddr: "Email", passwd: "Mot de passe", logoutBtn: "Se déconnecter", needAuth: "Connectez-vous d'abord.", onlineLabel: "Cours en ligne (synchronisé)", cloudAcc: "Compte cloud", signedInCloud: "Connecté", cloudCreated: "Cours en ligne créé. Code : ", cloudJoined: "Cours rejoint : ", noNet: "Pas de connexion au cloud.", delClass: "Supprimer le cours", delClassConfirm: "Supprimer ce cours en ligne pour tous ?", classDeleted: "Cours en ligne supprimé", announceHw: "Publier aussi dans les annonces", hwBadge: "Devoir", authTitle: "Bon retour", authSub: "Connectez-vous pour synchroniser vos cours.", orWord: "ou", authNote: "Vos cours restent privés. Nous ne vendons jamais vos données.", legal: "Légal", legalSub: "Conditions, confidentialité et cookies.", termsBtn: "Conditions d'utilisation", privBtn: "Politique de confidentialité", cookieBtn: "Politique cookies", closeBtn: "Fermer", updates: "Mises à jour", updatesSub: "L'app se met à jour toute seule. Les mises à jour sont obligatoires.", checkUpdates: "Vérifier les mises à jour", checkingUpdates: "Vérification…", upToDate: "Vous êtes à jour", downloadingUpdate: "Téléchargement de la mise à jour…", updateError: "Impossible de vérifier les mises à jour", tabStream: "Flux", tabClasswork: "Devoirs", tabPeople: "Participants", emailWord: "E-mail", bioWord: "Bio", statusWord: "Statut", guestWord: "Invité" },
-    de: { cloud: "Cloud", onlineClasses: "Online-Klassen", thisDevice: "Auf diesem Gerät", cloudOff: "Cloud-Sync ist aus. Füge deine Firebase-Schlüssel hinzu.", signInToSync: "Melde dich an, um zu synchronisieren.", signIn: "Anmelden", createAccount: "Konto erstellen", guestBtn: "Als Gast fortfahren", emailAddr: "E-Mail", passwd: "Passwort", logoutBtn: "Abmelden", needAuth: "Melde dich zuerst an.", onlineLabel: "Online-Klasse (wird synchronisiert)", cloudAcc: "Cloud-Konto", signedInCloud: "Angemeldet", cloudCreated: "Online-Klasse erstellt. Code: ", cloudJoined: "Beigetreten: ", noNet: "Keine Verbindung zur Cloud.", delClass: "Klasse löschen", delClassConfirm: "Diese Online-Klasse für alle löschen?", classDeleted: "Online-Klasse gelöscht", announceHw: "Auch in Mitteilungen posten", hwBadge: "Hausaufgabe", authTitle: "Willkommen zurück", authSub: "Melde dich an, um deine Klassen zu synchronisieren.", orWord: "oder", authNote: "Deine Klassen bleiben privat. Wir verkaufen keine Daten.", legal: "Rechtliches", legalSub: "Bedingungen, Datenschutz und Cookies.", termsBtn: "Nutzungsbedingungen", privBtn: "Datenschutzerklärung", cookieBtn: "Cookie-Richtlinie", closeBtn: "Schließen", updates: "Updates", updatesSub: "Die App aktualisiert sich selbst. Updates sind Pflicht.", checkUpdates: "Nach Updates suchen", checkingUpdates: "Suche nach Updates…", upToDate: "Du bist auf dem neuesten Stand", downloadingUpdate: "Pflicht-Update wird heruntergeladen…", updateError: "Updates konnten nicht geprüft werden", tabStream: "Stream", tabClasswork: "Aufgaben", tabPeople: "Personen", emailWord: "E-Mail", bioWord: "Bio", statusWord: "Status", guestWord: "Gast" }
+    en: { cloud: "Cloud", onlineClasses: "Online classes", thisDevice: "On this device", cloudOff: "Cloud sync is off. Add your Firebase keys to enable it.", signInToSync: "Sign in to sync classes across devices.", signIn: "Sign in", createAccount: "Create account", guestBtn: "Continue as guest", emailAddr: "Email", passwd: "Password", logoutBtn: "Log out", needAuth: "Sign in first.", onlineLabel: "Online class (syncs across devices)", cloudAcc: "Cloud account", signedInCloud: "Signed in", cloudCreated: "Online class created. Code: ", cloudJoined: "Joined online class ", noNet: "No connection to the cloud.", delClass: "Delete class", delClassConfirm: "Delete this online class for everyone?", classDeleted: "Online class deleted", announceHw: "Also post to announcements", hwBadge: "Homework", authTitle: "Welcome back", authSub: "Sign in to sync your classes on every device.", orWord: "or", authNote: "Your classes stay private to your account. We never sell your data.", legal: "Legal", legalSub: "Terms, privacy and cookies.", termsBtn: "Terms & conditions", privBtn: "Privacy policy", cookieBtn: "Cookie policy", closeBtn: "Close", updates: "Updates", updatesSub: "The app updates itself. Updates are required to keep using it.", checkUpdates: "Check for updates", checkingUpdates: "Checking for updates…", upToDate: "You're up to date", downloadingUpdate: "Downloading required update…", updateError: "Couldn't check for updates", tabStream: "Stream", tabClasswork: "Classwork", tabPeople: "People", emailWord: "Email", bioWord: "Bio", statusWord: "Status", guestWord: "Guest", grades: "Grades", yourAverage: "Your average", setGrades: "Set grades", notGraded: "Not graded", gradeRange: "Grade must be between 0 and {m}", gradesSaved: "Grades saved", pin: "Pin", unpin: "Unpin", pinBadge: "Pinned", comments: "Comments", noComments: "No comments yet", commentBtn: "Send", commentPh: "Write a comment…", dueSoon: "Due soon" },
+    es: { cloud: "Nube", onlineClasses: "Clases en línea", thisDevice: "En este dispositivo", cloudOff: "La nube está desactivada. Añade tus claves de Firebase.", signInToSync: "Inicia sesión para sincronizar tus clases.", signIn: "Iniciar sesión", createAccount: "Crear cuenta", guestBtn: "Entrar como invitado", emailAddr: "Correo", passwd: "Contraseña", logoutBtn: "Cerrar sesión", needAuth: "Inicia sesión primero.", onlineLabel: "Clase en línea (se sincroniza)", cloudAcc: "Cuenta en la nube", signedInCloud: "Sesión iniciada", cloudCreated: "Clase en línea creada. Código: ", cloudJoined: "Te uniste a ", noNet: "Sin conexión con la nube.", delClass: "Eliminar clase", delClassConfirm: "¿Eliminar esta clase en línea para todos?", classDeleted: "Clase en línea eliminada", announceHw: "Publicar también en anuncios", hwBadge: "Tarea", authTitle: "Bienvenido de nuevo", authSub: "Inicia sesión para sincronizar tus clases en todos los dispositivos.", orWord: "o", authNote: "Tus clases son privadas. Nunca vendemos tus datos.", legal: "Legal", legalSub: "Términos, privacidad y cookies.", termsBtn: "Términos y condiciones", privBtn: "Política de privacidad", cookieBtn: "Política de cookies", closeBtn: "Cerrar", updates: "Actualizaciones", updatesSub: "La app se actualiza sola. Las actualizaciones son obligatorias para seguir usándola.", checkUpdates: "Buscar actualizaciones", checkingUpdates: "Buscando actualizaciones…", upToDate: "Tienes la última versión", downloadingUpdate: "Descargando actualización obligatoria…", updateError: "No se pudieron buscar actualizaciones", tabStream: "Tablón", tabClasswork: "Trabajo", tabPeople: "Personas", emailWord: "Correo", bioWord: "Biografía", statusWord: "Estado", guestWord: "Invitado", grades: "Notas", yourAverage: "Tu media", setGrades: "Poner notas", notGraded: "Sin nota", gradeRange: "La nota debe estar entre 0 y {m}", gradesSaved: "Notas guardadas", pin: "Fijar", unpin: "Quitar", pinBadge: "Fijada", comments: "Comentarios", noComments: "Aún no hay comentarios", commentBtn: "Enviar", commentPh: "Escribe un comentario…", dueSoon: "Vence pronto" },
+    pt: { cloud: "Nuvem", onlineClasses: "Turmas online", thisDevice: "Neste dispositivo", cloudOff: "Sincronização desligada. Adiciona as chaves do Firebase.", signInToSync: "Inicia sessão para sincronizar.", signIn: "Iniciar sessão", createAccount: "Criar conta", guestBtn: "Entrar como convidado", emailAddr: "Email", passwd: "Palavra-passe", logoutBtn: "Terminar sessão", needAuth: "Inicia sessão primeiro.", onlineLabel: "Turma online (sincroniza)", cloudAcc: "Conta na nuvem", signedInCloud: "Sessão iniciada", cloudCreated: "Turma online criada. Código: ", cloudJoined: "Entraste em ", noNet: "Sem ligação à nuvem.", delClass: "Eliminar turma", delClassConfirm: "Eliminar esta turma online para todos?", classDeleted: "Turma online eliminada", announceHw: "Publicar também nos anúncios", hwBadge: "Trabalho", authTitle: "Bem-vindo de volta", authSub: "Inicia sessão para sincronizar as tuas turmas.", orWord: "ou", authNote: "As tuas turmas são privadas. Nunca vendemos os teus dados.", legal: "Legal", legalSub: "Termos, privacidade e cookies.", termsBtn: "Termos e condições", privBtn: "Política de privacidade", cookieBtn: "Política de cookies", closeBtn: "Fechar", updates: "Atualizações", updatesSub: "A app atualiza-se sozinha. As atualizações são obrigatórias.", checkUpdates: "Procurar atualizações", checkingUpdates: "A procurar atualizações…", upToDate: "Tens a versão mais recente", downloadingUpdate: "A descarregar atualização obrigatória…", updateError: "Não foi possível procurar atualizações", tabStream: "Mural", tabClasswork: "Trabalhos", tabPeople: "Pessoas", emailWord: "Email", bioWord: "Bio", statusWord: "Estado", guestWord: "Convidado", grades: "Notas", yourAverage: "Tua média", setGrades: "Dar notas", notGraded: "Sem nota", gradeRange: "A nota deve estar entre 0 e {m}", gradesSaved: "Notas guardadas", pin: "Afixar", unpin: "Desafixar", pinBadge: "Afixado", comments: "Comentários", noComments: "Ainda sem comentários", commentBtn: "Enviar", commentPh: "Escreve um comentário…", dueSoon: "Vence em breve" },
+    fr: { cloud: "Cloud", onlineClasses: "Cours en ligne", thisDevice: "Sur cet appareil", cloudOff: "Sync désactivée. Ajoutez vos clés Firebase.", signInToSync: "Connectez-vous pour synchroniser.", signIn: "Se connecter", createAccount: "Créer un compte", guestBtn: "Continuer en invité", emailAddr: "Email", passwd: "Mot de passe", logoutBtn: "Se déconnecter", needAuth: "Connectez-vous d'abord.", onlineLabel: "Cours en ligne (synchronisé)", cloudAcc: "Compte cloud", signedInCloud: "Connecté", cloudCreated: "Cours en ligne créé. Code : ", cloudJoined: "Cours rejoint : ", noNet: "Pas de connexion au cloud.", delClass: "Supprimer le cours", delClassConfirm: "Supprimer ce cours en ligne pour tous ?", classDeleted: "Cours en ligne supprimé", announceHw: "Publier aussi dans les annonces", hwBadge: "Devoir", authTitle: "Bon retour", authSub: "Connectez-vous pour synchroniser vos cours.", orWord: "ou", authNote: "Vos cours restent privés. Nous ne vendons jamais vos données.", legal: "Légal", legalSub: "Conditions, confidentialité et cookies.", termsBtn: "Conditions d'utilisation", privBtn: "Politique de confidentialité", cookieBtn: "Politique cookies", closeBtn: "Fermer", updates: "Mises à jour", updatesSub: "L'app se met à jour toute seule. Les mises à jour sont obligatoires.", checkUpdates: "Vérifier les mises à jour", checkingUpdates: "Vérification…", upToDate: "Vous êtes à jour", downloadingUpdate: "Téléchargement de la mise à jour…", updateError: "Impossible de vérifier les mises à jour", tabStream: "Flux", tabClasswork: "Devoirs", tabPeople: "Participants", emailWord: "E-mail", bioWord: "Bio", statusWord: "Statut", guestWord: "Invité", grades: "Notes", yourAverage: "Ta moyenne", setGrades: "Noter", notGraded: "Sans note", gradeRange: "La note doit être entre 0 et {m}", gradesSaved: "Notes enregistrées", pin: "Épingler", unpin: "Désépingler", pinBadge: "Épinglé", comments: "Commentaires", noComments: "Pas encore de commentaires", commentBtn: "Envoyer", commentPh: "Écris un commentaire…", dueSoon: "Échéance proche" },
+    de: { cloud: "Cloud", onlineClasses: "Online-Klassen", thisDevice: "Auf diesem Gerät", cloudOff: "Cloud-Sync ist aus. Füge deine Firebase-Schlüssel hinzu.", signInToSync: "Melde dich an, um zu synchronisieren.", signIn: "Anmelden", createAccount: "Konto erstellen", guestBtn: "Als Gast fortfahren", emailAddr: "E-Mail", passwd: "Passwort", logoutBtn: "Abmelden", needAuth: "Melde dich zuerst an.", onlineLabel: "Online-Klasse (wird synchronisiert)", cloudAcc: "Cloud-Konto", signedInCloud: "Angemeldet", cloudCreated: "Online-Klasse erstellt. Code: ", cloudJoined: "Beigetreten: ", noNet: "Keine Verbindung zur Cloud.", delClass: "Klasse löschen", delClassConfirm: "Diese Online-Klasse für alle löschen?", classDeleted: "Online-Klasse gelöscht", announceHw: "Auch in Mitteilungen posten", hwBadge: "Hausaufgabe", authTitle: "Willkommen zurück", authSub: "Melde dich an, um deine Klassen zu synchronisieren.", orWord: "oder", authNote: "Deine Klassen bleiben privat. Wir verkaufen keine Daten.", legal: "Rechtliches", legalSub: "Bedingungen, Datenschutz und Cookies.", termsBtn: "Nutzungsbedingungen", privBtn: "Datenschutzerklärung", cookieBtn: "Cookie-Richtlinie", closeBtn: "Schließen", updates: "Updates", updatesSub: "Die App aktualisiert sich selbst. Updates sind Pflicht.", checkUpdates: "Nach Updates suchen", checkingUpdates: "Suche nach Updates…", upToDate: "Du bist auf dem neuesten Stand", downloadingUpdate: "Pflicht-Update wird heruntergeladen…", updateError: "Updates konnten nicht geprüft werden", tabStream: "Stream", tabClasswork: "Aufgaben", tabPeople: "Personen", emailWord: "E-Mail", bioWord: "Bio", statusWord: "Status", guestWord: "Gast", grades: "Noten", yourAverage: "Dein Schnitt", setGrades: "Benoten", notGraded: "Ohne Note", gradeRange: "Note muss zwischen 0 und {m} liegen", gradesSaved: "Noten gespeichert", pin: "Anheften", unpin: "Lösen", pinBadge: "Angeheftet", comments: "Kommentare", noComments: "Noch keine Kommentare", commentBtn: "Senden", commentPh: "Schreib einen Kommentar…", dueSoon: "Fällig bald" }
   };
   function mergeExtra() {
     try {
@@ -51,6 +51,8 @@
     cloudClasses: [],          // merged owned + member class docs
     detail: null,              // { cls, members, posts, assignments }
     ui: { tab: "stream" },
+    expanded: {},              // "p:<id>" / "a:<id>" -> true when comments shown
+    cCache: {},                // "p:<id>" / "a:<id>" -> [comments] (fetched on demand)
     _unsubs: [], _detailUnsubs: []
   };
   window.Cloud = Cloud;
@@ -259,6 +261,7 @@
     try { state.route = "cloud"; state.classId = id; } catch (e) { window.__sc_state_route = "cloud"; }
     window.__sc_state_route = "cloud";
     Cloud.ui.tab = "stream";
+    Cloud.expanded = {}; Cloud.cCache = {};
     subscribeDetail(id);
     try { render(); } catch (e) {}
   };
@@ -309,6 +312,73 @@
   Cloud.isOwner = function (cls) {
     return !!(Cloud.user && cls && cls.ownerUid === Cloud.user.uid);
   };
+
+  function normE(e) { return String(e || "").trim().toLowerCase(); }
+  function viewerEmails() {
+    const out = [];
+    try { if (typeof profile !== "undefined" && profile && profile.email) out.push(normE(profile.email)); } catch (e) {}
+    if (Cloud.user && Cloud.user.email) out.push(normE(Cloud.user.email));
+    return out;
+  }
+  function viewerGrade(a) {
+    const g = a.grades || {};
+    for (const em of viewerEmails()) {
+      if (g[em] !== undefined && g[em] !== null && g[em] !== "") return Number(g[em]);
+    }
+    return null;
+  }
+  function viewerAverage(assigns) {
+    let sum = 0, n = 0;
+    (assigns || []).forEach(a => {
+      if (!(a.points > 0)) return;
+      const g = viewerGrade(a);
+      if (g === null || isNaN(g)) return;
+      sum += (g / a.points) * 10; n++;
+    });
+    return n ? { avg: sum / n, n } : null;
+  }
+  function sortedPosts(posts) {
+    return [...(posts || [])].sort((x, y) => {
+      const px = x.pinned ? 1 : 0, py = y.pinned ? 1 : 0;
+      if (px !== py) return py - px;
+      const dx = x.createdAt && x.createdAt.toDate ? x.createdAt.toDate() : new Date(x.createdAt);
+      const dy = y.createdAt && y.createdAt.toDate ? y.createdAt.toDate() : new Date(y.createdAt);
+      return dy - dx;
+    });
+  }
+  /* Comments fetched on demand (no listener explosion) */
+  async function loadCcComments(kind, id) {
+    const key = kind + ":" + id;
+    const clsId = Cloud.detail && Cloud.detail.cls && Cloud.detail.cls.id;
+    if (!clsId) return;
+    const coll = kind === "p" ? "posts" : "assignments";
+    try {
+      const s = await Cloud.db.collection("classes").doc(clsId).collection(coll).doc(id).collection("comments").orderBy("createdAt", "asc").limit(100).get();
+      const out = [];
+      s.forEach(d => out.push({ id: d.id, ...d.data() }));
+      Cloud.cCache[key] = out;
+    } catch (e) { Cloud.cCache[key] = []; }
+    try { render(); } catch (err) {}
+  }
+  function ccCommentsHTML(kind, id) {
+    const key = kind + ":" + id;
+    if (!Cloud.expanded[key]) {
+      return `<button class="cc-toggle" data-cc-comments="${key}">💬 ${t("comments")}</button><div id="ccbox-${kind}-${id}"></div>`;
+    }
+    const list = Cloud.cCache[key];
+    const inner = !list
+      ? `<p class="muted" style="font-size:12.5px">…</p>`
+      : (list.length ? list.map(cm => {
+        const pic = cm.authorPfp || null;
+        const av = pic ? `<div class="mini-avatar sm"><img src="${pic}" alt="avatar"/></div>` : `<div class="mini-avatar sm">${esc(((cm.authorName || "?")[0]) || "?")}</div>`;
+        let dstr = "";
+        try { dstr = (cm.createdAt && cm.createdAt.toDate ? cm.createdAt.toDate() : new Date(cm.createdAt)).toLocaleString(typeof locale === "function" ? locale() : undefined); } catch (e) {}
+        return `<div class="comment">${av}<div class="comment-body"><strong>${esc(cm.authorName || "?")}</strong><span class="muted"> · ${esc(dstr)}</span><p>${esc(cm.text)}</p></div></div>`;
+      }).join("") : `<p class="muted" style="font-size:12.5px;margin:6px 0">${t("noComments")}</p>`);
+    return `<button class="cc-toggle" data-cc-comments="${key}">💬 ${t("comments")} ▲</button>
+      <div class="comments" id="ccbox-${kind}-${id}">${inner}
+      <div class="cinput-row"><input type="text" data-ccinput="${key}" placeholder="${esc(t("commentPh"))}" maxlength="500" /><button class="btn small" data-cc-send="${key}">${t("commentBtn")}</button></div></div>`;
+  }
 
   /* ---------- cloud home section ---------- */
   Cloud.homeHTML = function () {
@@ -382,23 +452,27 @@
           <p class="muted">${esc(c.room || "-")} · ${members.length} ${t("membersWord")}</p></div>
         <div>
           ${owner ? `<div class="btn-row" style="margin-bottom:12px"><button class="btn primary" id="ccPost">${t("newAnnounceBtn")}</button><button class="btn" id="ccAssign">${t("newHwBtn")}</button></div>` : `<p class="muted" style="margin:0 0 12px">${t("onlyOwner")}</p>`}
-          ${posts.length ? posts.map(p => {
+          ${posts.length ? sortedPosts(posts).map(p => {
             const m = members.find(x => (x.email || "").toLowerCase() === String(p.authorEmail || "").toLowerCase());
             const pic = (m && m.pfp) || p.authorPfp || null;
             const av = pic ? `<div class="mini-avatar"><img src="${pic}" alt="avatar"/></div>` : `<div class="mini-avatar">${esc((p.authorName || "?")[0] || "?")}</div>`;
             const hw = p.kind === "hw";
-            return `<div class="post"><div class="post-head">${av}<div><strong>${esc(p.authorName || "?")}</strong><div class="muted" style="font-size:12px">${esc(fmtDT(p.createdAt))}</div></div>${hw ? `<span class="hw-badge">✏ ${t("hwBadge")}</span>` : ""}</div>${hw ? `<p style="margin:6px 0 2px"><strong>${esc(p.hwTitle || "")}</strong></p>${p.hwDue ? `<p class="muted" style="margin:0 0 4px;font-size:13px">${esc(fmtDT(p.hwDue))}</p>` : ""}` : ""}<p style="margin:6px 0 0">${esc(p.text)}</p></div>`;
+            return `<div class="post${p.pinned ? " pinned" : ""}"><div class="post-head">${av}<div><strong>${esc(p.authorName || "?")}</strong><div class="muted" style="font-size:12px">${esc(fmtDT(p.createdAt))}</div></div>${p.pinned ? `<span class="hw-badge">📌 ${t("pinBadge")}</span>` : ""}${hw ? `<span class="hw-badge">✏ ${t("hwBadge")}</span>` : ""}${owner ? `<button class="icon-btn sm pin-btn" data-cc-pin="${p.id}" title="${p.pinned ? t("unpin") : t("pin")}">${p.pinned ? "📌" : "📍"}</button>` : ""}</div>${hw ? `<p style="margin:6px 0 2px"><strong>${esc(p.hwTitle || "")}</strong></p>${p.hwDue ? `<p class="muted" style="margin:0 0 4px;font-size:13px">${esc(fmtDT(p.hwDue))}</p>` : ""}` : ""}<p style="margin:6px 0 0">${esc(p.text)}</p>${ccCommentsHTML("p", p.id)}</div>`;
           }).join("") : `<div class="empty">${t("noAnnounce")}</div>`}
         </div></div>`;
     } else if (tab === "classwork") {
+      const avg = viewerAverage(assigns);
       body = `${owner ? `<div class="btn-row" style="margin-bottom:12px"><button class="btn primary" id="ccAssign">${t("newHwBtn")}</button></div>` : `<p class="muted" style="margin:0 0 12px">${t("onlyOwner")}</p>`}
+      ${avg ? `<div class="card avg-card"><strong>★ ${t("yourAverage")}: ${avg.avg.toFixed(1)}</strong><span class="muted"> · ${avg.n} ${t("grades").toLowerCase()}</span></div>` : ""}
       ${assigns.length ? assigns.map(a => {
         const done = (a.doneBy || []).includes(Cloud.user.uid);
+        const g = viewerGrade(a);
         return `<div class="assign ${done ? "done" : ""}">
           <div class="assign-head"><div style="flex:1"><strong>${esc(a.title)}</strong><div class="muted" style="font-size:13px">${esc(a.due ? fmtDT(a.due) : t("noDueDate"))} · ${a.points || 0} ${t("pts")}</div></div>
+          ${g !== null ? `<span class="grade-chip">★ ${g}/${a.points || 0}</span>` : ((a.points > 0) ? `<span class="grade-chip dim">${t("notGraded")}</span>` : "")}
           <button class="btn small" data-cc-toggle="${a.id}">${done ? t("reopenBtn") : t("markDone")}</button>
-          ${owner ? `<button class="btn small danger" data-cc-delassign="${a.id}">${t("deleteBtn")}</button>` : ""}</div>
-          ${a.desc ? `<p style="margin:6px 0 0">${esc(a.desc)}</p>` : ""}</div>`;
+          ${owner ? `<button class="btn small" data-cc-grade="${a.id}">${t("setGrades")}</button><button class="btn small danger" data-cc-delassign="${a.id}">${t("deleteBtn")}</button>` : ""}</div>
+          ${a.desc ? `<p style="margin:6px 0 0">${esc(a.desc)}</p>` : ""}${ccCommentsHTML("a", a.id)}</div>`;
       }).join("") : `<div class="empty">${t("noHw")}</div>`}`;
     } else {
       const mAv = (m, fb) => m.pfp ? `<div class="mini-avatar"><img src="${m.pfp}" alt="avatar"/></div>` : `<div class="mini-avatar">${esc(fb)}</div>`;
@@ -439,7 +513,7 @@
         const text = document.getElementById("ccText").value.trim();
         if (!text) { toast(t("writeSomething")); return; }
         const mp = memberProfile();
-        await doc().collection("posts").add({ authorUid: Cloud.user.uid, authorName: (mp.firstName + " " + mp.lastName).trim() || mp.email, authorEmail: mp.email, text, createdAt: firebase.firestore.FieldValue.serverTimestamp() });
+        await doc().collection("posts").add({ authorUid: Cloud.user.uid, authorName: (mp.firstName + " " + mp.lastName).trim() || mp.email, authorEmail: mp.email, authorPfp: mp.pfp || null, text, pinned: false, createdAt: firebase.firestore.FieldValue.serverTimestamp() });
         closeModal(); celebrateEvent(e, 14); toast(t("postedMsg"), true);
       };
     });
@@ -460,7 +534,7 @@
         const aref = await doc().collection("assignments").add({
           title, desc, due,
           points: Number(document.getElementById("ccPoints").value) || 0,
-          createdBy: Cloud.user.uid, doneBy: [],
+          createdBy: Cloud.user.uid, doneBy: [], grades: {}, comments: [],
           createdAt: firebase.firestore.FieldValue.serverTimestamp()
         });
         if (document.getElementById("ccAnnounce")?.checked) {
@@ -489,6 +563,75 @@
       if (!Cloud.isOwner(Cloud.detail.cls)) { toast(t("onlyOwner")); return; }
       if (!confirm(t("delConfirm"))) return;
       await doc().collection("assignments").doc(b.dataset.ccDelassign).delete();
+    });
+    $$("[data-cc-pin]").forEach(b => b.onclick = async (e) => {
+      if (!Cloud.isOwner(Cloud.detail.cls)) { toast(t("onlyOwner")); return; }
+      const pref = doc().collection("posts").doc(b.dataset.ccPin);
+      const s = await pref.get();
+      const pinned = !(s.data() && s.data().pinned);
+      await pref.update({ pinned });
+      celebrateEvent(e, 8); toast(pinned ? t("pin") : t("unpin"), pinned);
+    });
+    $$("[data-cc-grade]").forEach(b => b.onclick = () => {
+      if (!Cloud.isOwner(Cloud.detail.cls)) { toast(t("onlyOwner")); return; }
+      const a = (Cloud.detail.assignments || []).find(x => x.id === b.dataset.ccGrade);
+      if (!a) return;
+      const members = Cloud.detail.members || [];
+      openModal(`<h2>${t("setGrades")}</h2><p class="muted">${esc(a.title)} · ${a.points || 0} ${t("pts")}</p>
+        <div class="grade-list">
+        ${members.map((m, i) => {
+          const g = (a.grades || {})[normE(m.email)];
+          return `<div class="grade-row"><div style="flex:1"><strong>${esc((m.firstName || "") + " " + (m.lastName || ""))}</strong><div class="muted" style="font-size:12px">${esc(m.email)}</div></div>
+            <input type="number" id="ccgrade-${i}" min="0" max="${a.points || 0}" step="0.5" value="${g === undefined ? "" : esc(g)}" placeholder="–" /></div>`;
+        }).join("")}
+        </div>
+        <div class="btn-row" style="margin-top:14px"><button class="btn primary" id="ccDoGrades">${t("saveBtn")}</button><button class="btn" id="cancelModal">${t("cancelBtn")}</button></div>`);
+      document.getElementById("ccDoGrades").onclick = async () => {
+        const grades = { ...(a.grades || {}) };
+        for (let i = 0; i < members.length; i++) {
+          const v = document.getElementById("ccgrade-" + i).value.trim();
+          const key = normE(members[i].email);
+          if (v === "") delete grades[key];
+          else {
+            const n = Number(v);
+            if (isNaN(n) || n < 0 || n > (a.points || 0)) { toast(t("gradeRange").replace("{m}", a.points || 0)); return; }
+            grades[key] = n;
+          }
+        }
+        await doc().collection("assignments").doc(a.id).update({ grades });
+        closeModal(); toast(t("gradesSaved"), true);
+      };
+    });
+    $$("[data-cc-comments]").forEach(b => b.onclick = () => {
+      const key = b.dataset.ccComments;
+      if (Cloud.expanded[key]) { delete Cloud.expanded[key]; try { render(); } catch (e) {} return; }
+      Cloud.expanded[key] = true;
+      const [kind, id] = key.split(":");
+      if (!Cloud.cCache[key]) { Cloud.cCache[key] = null; loadCcComments(kind, id); }
+      try { render(); } catch (e) {}
+    });
+    $$("[data-cc-send]").forEach(b => b.onclick = async () => {
+      const key = b.dataset.ccSend;
+      const [kind, id] = key.split(":");
+      const input = document.querySelector(`[data-ccinput="${key}"]`);
+      const text = (input?.value || "").trim();
+      if (!text || !Cloud.user) return;
+      const mp = memberProfile();
+      const coll = kind === "p" ? "posts" : "assignments";
+      await doc().collection(coll).doc(id).collection("comments").add({
+        authorUid: Cloud.user.uid,
+        authorName: (mp.firstName + " " + mp.lastName).trim() || mp.email,
+        authorEmail: mp.email, authorPfp: mp.pfp || null, text,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+      await loadCcComments(kind, id);
+      celebrateEvent(b, 6);
+    });
+    $$("[data-ccinput]").forEach(inp => inp.onkeydown = (e) => {
+      if (e.key === "Enter") {
+        const btn = document.querySelector(`[data-cc-send="${inp.dataset.ccinput}"]`);
+        btn?.click();
+      }
     });
     on("#ccLeave", async () => {
       await doc().collection("members").doc(Cloud.user.uid).delete().catch(() => {});

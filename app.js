@@ -143,8 +143,43 @@ function avatarHTML(p, cls = "mini-avatar") {
 /* Find a class member by email (case-insensitive) so we can show their photo */
 function memberByEmail(c, email) {
   if (!c || !email) return null;
-  const want = String(email).trim().toLowerCase();
-  return (c.members || []).find(m => String(m.email || "").trim().toLowerCase() === want) || null;
+  const want = normEmail(email);
+  return (c.members || []).find(m => normEmail(m.email) === want) || null;
+}
+function normEmail(e) { return String(e || "").trim().toLowerCase(); }
+/* Grade of the current user on an assignment (null = not graded) */
+function myGrade(a) {
+  if (!profile) return null;
+  const g = (a.grades || {})[normEmail(profile.email)];
+  return (g === undefined || g === null || g === "") ? null : Number(g);
+}
+/* Average of the current user across graded assignments of a class */
+function myAverage(c) {
+  let sum = 0, n = 0;
+  (c.assignments || []).forEach(a => {
+    if (!(a.points > 0)) return;
+    const g = myGrade(a);
+    if (g === null || isNaN(g)) return;
+    sum += (g / a.points) * 10; n++;
+  });
+  return n ? { avg: sum / n, n } : null;
+}
+/* Pinned announcements first, then newest */
+function sortedPosts(c) {
+  return [...(c.posts || [])].sort((x, y) => {
+    const px = x.pinned ? 1 : 0, py = y.pinned ? 1 : 0;
+    if (px !== py) return py - px;
+    return new Date(y.date) - new Date(x.date);
+  });
+}
+/* Comments thread HTML shared by posts (kind "p") and homework (kind "a") */
+function commentsHTML(items, kind, id) {
+  const list = items || [];
+  return `<div class="comments" id="comments-${kind}-${id}">`
+    + (list.length
+      ? list.map(cm => `<div class="comment">${avatarHTML({ firstName: cm.authorName?.[0] || "?", lastName: "", pfp: cm.authorPfp || null }, "mini-avatar sm")}<div class="comment-body"><strong>${esc(cm.authorName || "?")}</strong><span class="muted"> · ${esc(new Date(cm.date).toLocaleString(locale()))}</span><p>${esc(cm.text)}</p></div></div>`).join("")
+      : `<p class="muted" style="font-size:12.5px;margin:6px 0">${t("noComments")}</p>`)
+    + `<div class="cinput-row"><input type="text" data-cinput="${kind}:${id}" placeholder="${esc(t("commentPh"))}" maxlength="500" /><button class="btn small" data-sendcomment="${kind}:${id}">${t("commentBtn")}</button></div></div>`;
 }
 /* Push current profile (name + photo) into every local class where you appear */
 function propagateProfileToClasses() {
@@ -344,11 +379,42 @@ function openAssignModal(classId, presetDue = "") {
     const title = $("#aTitle").value.trim(); if (!title) { toast(t("needTitle")); return; }
     const desc = $("#aDesc").value.trim(), due = $("#aDue").value || "";
     const aid = uid();
-    c.assignments.unshift({ id: aid, title, desc, due, points: Number($("#aPoints").value) || 0, done: false, createdAt: new Date().toISOString() });
+    c.assignments.unshift({ id: aid, title, desc, due, points: Number($("#aPoints").value) || 0, done: false, grades: {}, comments: [], createdAt: new Date().toISOString() });
     if ($("#aAnnounce")?.checked) {
       c.posts.unshift({ id: uid(), authorName: profile.firstName + " " + profile.lastName, authorEmail: profile.email, authorPfp: profile.pfp || null, text: desc, date: new Date().toISOString(), comments: [], kind: "hw", hwTitle: title, hwDue: due, assignmentId: aid });
     }
     save(LS_CLASSES, classes); closeModal(); render(); celebrateEvent(e, 16); toast(t("hwSaved"), true);
+  };
+}
+
+/* ---------- Grades (owner only) ---------- */
+function openGradeModal(classId, assignId) {
+  const c = getClass(classId);
+  if (!isOwner(c)) { toast(t("onlyOwner")); return; }
+  const a = c.assignments.find(x => x.id === assignId);
+  if (!a) return;
+  if (!a.grades) a.grades = {};
+  openModal(`<h2>${t("setGrades")}</h2><p class="muted">${esc(a.title)} · ${a.points} ${t("pts")}</p>
+    <div class="grade-list">
+    ${(c.members || []).map((m, i) => {
+      const g = a.grades[normEmail(m.email)];
+      return `<div class="grade-row"><div style="flex:1"><strong>${esc(m.firstName)} ${esc(m.lastName)}</strong><div class="muted" style="font-size:12px">${esc(m.email)}</div></div>
+        <input type="number" id="grade-${i}" min="0" max="${a.points}" step="0.5" value="${g === undefined ? "" : esc(g)}" placeholder="–" /></div>`;
+    }).join("")}
+    </div>
+    <div class="btn-row" style="margin-top:14px"><button class="btn primary" id="doGrades">${t("saveBtn")}</button><button class="btn" id="cancelModal">${t("cancelBtn")}</button></div>`);
+  $("#doGrades").onclick = () => {
+    (c.members || []).forEach((m, i) => {
+      const v = $(`#grade-${i}`).value.trim();
+      const key = normEmail(m.email);
+      if (v === "") delete a.grades[key];
+      else {
+        const n = Number(v);
+        if (isNaN(n) || n < 0 || n > a.points) { toast(t("gradeRange").replace("{m}", a.points)); return; }
+        a.grades[key] = n;
+      }
+    });
+    save(LS_CLASSES, classes); closeModal(); render(); toast(t("gradesSaved"), true);
   };
 }
 
@@ -523,19 +589,25 @@ function viewClass() {
         <p class="muted">${esc(c.room || "-")} · ${c.members.length} ${t("membersWord")}</p></div>
       <div>
         ${owner ? `<div class="btn-row" style="margin-bottom:12px"><button class="btn primary" id="newPost">${t("newAnnounceBtn")}</button><button class="btn" id="newAssign">${t("newHwBtn")}</button></div>` : `<p class="muted" style="margin:0 0 12px">${t("onlyOwner")}</p>`}
-        ${c.posts.length ? c.posts.map(p => {
+        ${c.posts.length ? sortedPosts(c).map(p => {
           const author = memberByEmail(c, p.authorEmail) || { firstName: p.authorName?.[0] || "?", lastName: "", pfp: p.authorPfp || null };
           const hw = p.kind === "hw";
-          return `<div class="post"><div class="post-head">${avatarHTML(author)}<div><strong>${esc(p.authorName)}</strong><div class="muted" style="font-size:12px">${esc(new Date(p.date).toLocaleString(locale()))}</div></div>${hw ? `<span class="hw-badge">✏ ${t("hwBadge")}</span>` : ""}</div>${hw ? `<p style="margin:6px 0 2px"><strong>${esc(p.hwTitle || "")}</strong></p><p class="muted" style="margin:0 0 4px;font-size:13px">${p.hwDue ? esc(new Date(p.hwDue).toLocaleString(locale())) : esc(t("noDueDate"))}</p>` : ""}<p style="margin:6px 0 0">${esc(p.text)}</p></div>`;
+          return `<div class="post${p.pinned ? " pinned" : ""}"><div class="post-head">${avatarHTML(author)}<div><strong>${esc(p.authorName)}</strong><div class="muted" style="font-size:12px">${esc(new Date(p.date).toLocaleString(locale()))}</div></div>${p.pinned ? `<span class="hw-badge">📌 ${t("pinBadge")}</span>` : ""}${hw ? `<span class="hw-badge">✏ ${t("hwBadge")}</span>` : ""}${owner ? `<button class="icon-btn sm pin-btn" data-pin="${p.id}" title="${p.pinned ? t("unpin") : t("pin")}">${p.pinned ? "📌" : "📍"}</button>` : ""}</div>${hw ? `<p style="margin:6px 0 2px"><strong>${esc(p.hwTitle || "")}</strong></p><p class="muted" style="margin:0 0 4px;font-size:13px">${p.hwDue ? esc(new Date(p.hwDue).toLocaleString(locale())) : esc(t("noDueDate"))}</p>` : ""}<p style="margin:6px 0 0">${esc(p.text)}</p>${commentsHTML(p.comments, "p", p.id)}</div>`;
         }).join("") : `<div class="empty">${t("noAnnounce")}</div>`}
       </div></div>`;
   } else if (tab === "classwork") {
+    const avg = myAverage(c);
     body = `${owner ? `<div class="btn-row" style="margin-bottom:12px"><button class="btn primary" id="newAssign">${t("newHwBtn")}</button></div>` : `<p class="muted" style="margin:0 0 12px">${t("onlyOwner")}</p>`}
-    ${c.assignments.length ? c.assignments.map(a => `<div class="assign ${a.done ? "done" : ""}">
+    ${avg ? `<div class="card avg-card"><strong>★ ${t("yourAverage")}: ${avg.avg.toFixed(1)}</strong><span class="muted"> · ${avg.n} ${t("grades").toLowerCase()}</span></div>` : ""}
+    ${c.assignments.length ? c.assignments.map(a => {
+      const g = myGrade(a);
+      return `<div class="assign ${a.done ? "done" : ""}">
       <div class="assign-head"><div style="flex:1"><strong>${esc(a.title)}</strong><div class="muted" style="font-size:13px">${esc(fmtDue(a))} · ${a.points} ${t("pts")}</div></div>
+      ${g !== null ? `<span class="grade-chip">★ ${g}/${a.points}</span>` : (a.points > 0 ? `<span class="grade-chip dim">${t("notGraded")}</span>` : "")}
       <button class="btn small" data-toggle="${a.id}">${a.done ? t("reopenBtn") : t("markDone")}</button>
-      ${owner ? `<button class="btn small danger" data-delassign="${a.id}">${t("deleteBtn")}</button>` : ""}</div>
-      ${a.desc ? `<p style="margin:6px 0 0">${esc(a.desc)}</p>` : ""}</div>`).join("") : `<div class="empty">${t("noHw")}</div>`}`;
+      ${owner ? `<button class="btn small" data-grade="${a.id}">${t("setGrades")}</button><button class="btn small danger" data-delassign="${a.id}">${t("deleteBtn")}</button>` : ""}</div>
+      ${a.desc ? `<p style="margin:6px 0 0">${esc(a.desc)}</p>` : ""}${commentsHTML(a.comments, "a", a.id)}</div>`;
+    }).join("") : `<div class="empty">${t("noHw")}</div>`}`;
   } else {
     body = `<div class="card"><h3>${t("teacherWord")}</h3><div class="person-row">${avatarHTML(c.teacher)}<div><strong>${esc(c.teacher?.firstName + " " + c.teacher?.lastName)}</strong><div class="muted">${esc(c.teacher?.email || "")}</div></div></div>
       <h3 style="margin-top:16px">${t("membersTitle")} (${c.members.length})</h3>
@@ -587,6 +659,33 @@ function bindCommon() {
     if (!confirm(t("delConfirm"))) return;
     c.assignments = c.assignments.filter(x => x.id !== b.dataset.delassign);
     save(LS_CLASSES, classes); render();
+  });
+  $$("[data-pin]").forEach(b => b.onclick = (e) => {
+    const c = getClass(state.classId);
+    if (!isOwner(c)) { toast(t("onlyOwner")); return; }
+    const p = c.posts.find(x => x.id === b.dataset.pin);
+    if (p) { p.pinned = !p.pinned; save(LS_CLASSES, classes); render(); celebrateEvent(e, 8); toast(p.pinned ? t("pin") : t("unpin"), p.pinned); }
+  });
+  $$("[data-grade]").forEach(b => b.onclick = () => openGradeModal(state.classId, b.dataset.grade));
+  $$("[data-sendcomment]").forEach(b => b.onclick = () => {
+    const c = getClass(state.classId);
+    if (!c || !profile) return;
+    const [kind, id] = b.dataset.sendcomment.split(":");
+    const input = document.querySelector(`[data-cinput="${kind}:${id}"]`);
+    const text = (input?.value || "").trim();
+    if (!text) return;
+    const cm = { id: uid(), authorName: profile.firstName + " " + profile.lastName, authorEmail: profile.email, authorPfp: profile.pfp || null, text, date: new Date().toISOString() };
+    const target = kind === "p" ? c.posts.find(x => x.id === id) : c.assignments.find(x => x.id === id);
+    if (!target) return;
+    if (!target.comments) target.comments = [];
+    target.comments.push(cm);
+    save(LS_CLASSES, classes); render(); celebrateEvent(b, 6);
+  });
+  $$("[data-cinput]").forEach(inp => inp.onkeydown = (e) => {
+    if (e.key === "Enter") {
+      const btn = document.querySelector(`[data-sendcomment="${inp.dataset.cinput}"]`);
+      btn?.click();
+    }
   });
   $$("[data-done]").forEach(ch => ch.onchange = (e) => {
     const [cid, aid] = ch.dataset.done.split(":");
@@ -678,6 +777,34 @@ $("#searchInput").addEventListener("input", e => {
   }, 120);
 });
 
+/* ---------- Due-date reminders (local homework, once per item per day) ---------- */
+const LS_NOTIFIED = "sc_notified_v1";
+function checkReminders() {
+  try {
+    if (typeof Notification === "undefined") return;
+    if (Notification.permission === "denied") return;
+    const go = () => {
+      const now = Date.now(), day = new Date().toDateString();
+      let seen = {};
+      try { seen = JSON.parse(localStorage.getItem(LS_NOTIFIED) || "{}"); } catch (e) {}
+      let changed = false;
+      myClasses().forEach(c => (c.assignments || []).forEach(a => {
+        if (a.done) return;
+        const d = parseDue(a);
+        if (!d) return;
+        const ms = d - now;
+        if (ms < 0 || ms > 24 * 3600 * 1000) return;
+        if (seen[a.id] === day) return;
+        seen[a.id] = day; changed = true;
+        try { new Notification("⏰ " + a.title, { body: t("dueSoon") + " · " + c.name + " · " + fmtDue(a) }); } catch (e) {}
+      }));
+      if (changed) { try { localStorage.setItem(LS_NOTIFIED, JSON.stringify(seen)); } catch (e) {} }
+    };
+    if (Notification.permission === "default") { try { Notification.requestPermission().then(go).catch(() => {}); } catch (e) { go(); } }
+    else go();
+  } catch (e) {}
+}
+
 /* ---------- init ---------- */
 document.documentElement.lang = lang;
 applyTheme();
@@ -685,3 +812,5 @@ applyStaticI18n();
 updateTopAvatar();
 render();
 if (!profile) openProfileModal(true);
+setTimeout(checkReminders, 4000);
+setInterval(checkReminders, 3600 * 1000);
